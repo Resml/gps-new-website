@@ -1,0 +1,12 @@
+// Suchen-Button im Glossar
+document.addEventListener("DOMContentLoaded", function () { 
+    // Finden Sie das Suchformular und den Button
+    var searchForm = document.getElementById("wppedia_searchform");
+    var searchButton = document.querySelector(".search-submit");
+
+    // Überprüfen Sie, ob das Suchformular und der Button gefunden wurden
+    if (searchForm && searchButton) {
+        // Ändern Sie den Wert des Buttons
+        searchButton.value = "Suchen";
+    }
+});

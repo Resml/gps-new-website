@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){var searchForm=document.getElementById("wppedia_searchform");var searchButton=document.querySelector(".search-submit");if(searchForm&&searchButton){searchButton.value="Suchen"}})
