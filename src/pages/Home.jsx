@@ -1,6 +1,7 @@
 import React from 'react';
 import BrandMarquee from '../components/BrandMarquee';
 import CadDrawing from '../components/CadDrawing';
+import WhyChooseUsSection from '../components/WhyChooseUsSection';
 
 export default function Home({ onNavigate }) {
   return (
@@ -217,94 +218,8 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Economic Value Section — Split Screen Kern GmbH Reference Layout */}
-      <section className="econ-split-section">
-        <div className="econ-split-container">
-          {/* Left Dark Timeline Content */}
-          <div className="econ-split-left">
-            <h2 className="econ-split-title">
-              Why <span className="text-highlight-white">hundreds of industrial companies</span> choose GPS Spindles
-            </h2>
-
-            <div className="econ-timeline">
-              <div className="econ-timeline-line"></div>
-
-              {/* Item 1 */}
-              <div className="econ-timeline-item">
-                <div className="econ-timeline-icon">
-                  <svg width="20" height="20" fill="none" stroke="#1e3a8a" strokeWidth="2.2" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                </div>
-                <div className="econ-timeline-content">
-                  <h3 className="econ-item-heading">OVER 20+ YEARS OF ENGINEERING EXPERTISE</h3>
-                  <p className="econ-item-text">
-                    As a trusted pioneer in <span className="text-link-accent">sustainable and long-lasting spindle repairs</span>, even complex multi-axis repairs are routine for us. We ensure spindles are optimized for high availability, saving 20%–30% vs purchasing new OEM units.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 2 */}
-              <div className="econ-timeline-item">
-                <div className="econ-timeline-icon">
-                  <svg width="20" height="20" fill="none" stroke="#1e3a8a" strokeWidth="2.2" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div className="econ-timeline-content">
-                  <h3 className="econ-item-heading">HIGH EFFECTIVENESS &amp; RELIABILITY</h3>
-                  <p className="econ-item-text">
-                    Our restored &amp; dynamic-balanced spindles achieve more than twice the operating lifecycle. This allows you to sustainably reduce unplanned machine failures by up to 50%.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 3 */}
-              <div className="econ-timeline-item">
-                <div className="econ-timeline-icon">
-                  <svg width="20" height="20" fill="none" stroke="#1e3a8a" strokeWidth="2.2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <div className="econ-timeline-content">
-                  <h3 className="econ-item-heading">FAST SPINDLE REBUILD &amp; TURNAROUND</h3>
-                  <p className="econ-item-text">
-                    Production downtime must be minimized. Thanks to our streamlined Pune facility, we fully rebuild and test spindles within 4 to 8 working days (with 48hr priority dispatch available).
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 4 */}
-              <div className="econ-timeline-item">
-                <div className="econ-timeline-icon">
-                  <svg width="20" height="20" fill="none" stroke="#1e3a8a" strokeWidth="2.2" viewBox="0 0 24 24">
-                    <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
-                  </svg>
-                </div>
-                <div className="econ-timeline-content">
-                  <h3 className="econ-item-heading">TOP PRICE-PERFORMANCE RATIO &amp; WARRANTY</h3>
-                  <p className="econ-item-text">
-                    According to 3,000+ satisfied clients, our rebuilt spindles deliver sub-micron precision with long service life. Backed by an industry-leading 1-Year warranty.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="econ-split-actions">
-              <button onClick={() => onNavigate('contact')} className="btn-make-inquiry">
-                MAKE AN INQUIRY NOW &nbsp;&rarr;
-              </button>
-            </div>
-          </div>
-
-          {/* Right Workshop Image */}
-          <div className="econ-split-right">
-            <img src="/images/workshop_real.png" alt="GPS Spindles Engineering Workshop" className="econ-workshop-img" />
-            <div className="econ-image-overlay"></div>
-          </div>
-        </div>
-      </section>
+      {/* Redesigned Why Choose GPS Spindles Section with Video Showcase */}
+      <WhyChooseUsSection onNavigate={onNavigate} />
 
       {/* Precision Grinding & Cylindrical Reconstruction — ENHANCED */}
       <section className="taper-section">
@@ -730,6 +645,195 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
+      {/* What Our Customers Say — 3D Center Spindle Showcase (Exact to Reference Image) */}
+      <section className="section showcase-testimonials-section">
+        <div className="container">
+          {/* Header */}
+          <div className="showcase-header">
+            <span className="showcase-top-pill">
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              VERIFIED CLIENT REVIEWS
+            </span>
+            <h2 className="showcase-title">
+              What Our <span className="blue-accent">Customers Say</span>
+            </h2>
+            <div className="showcase-title-line"></div>
+            <p className="showcase-subtitle">
+              Over 3,000+ machine shops, automotive Tier-1 suppliers, and aerospace component manufacturers rely on GPS Spindles for guaranteed sub-micron precision and zero downtime.
+            </p>
+          </div>
+
+          {/* Main 3-Column Grid Layout: Left Cards | 3D Center Showcase | Right Cards */}
+          <div className="showcase-main-layout">
+
+            {/* LEFT COLUMN: 2 Cards */}
+            <div className="showcase-col showcase-col-left">
+              {/* Card 1 */}
+              <div className="showcase-card">
+                <div className="showcase-quote-icon">“</div>
+                <p className="showcase-card-quote">
+                  "GPS Spindles rebuilt our Haas VMC-750 high-speed spindle in just 4 days when OEM quoted 6 weeks. Runout was calibrated under 0.0008mm, and it has been running flawlessly for over 18 months."
+                </p>
+                <div className="showcase-stars">★ ★ ★ ★ ★</div>
+                <div className="showcase-author-block">
+                  <h4 className="showcase-author-name">RAJESH SHARMA</h4>
+                  <span className="showcase-author-role">Plant Operations Manager, Pune Precision Auto</span>
+                </div>
+                <div className="showcase-pill-badge">
+                  ✓ HAAS VMC-750 • 0.0008mm Runout
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="showcase-card">
+                <div className="showcase-quote-icon">“</div>
+                <p className="showcase-card-quote">
+                  "Their dynamic balancing capability to ISO G0.4 standards transformed our surface finish quality. Vibration levels dropped by 65%, dramatically extending our bearing operating lifecycle."
+                </p>
+                <div className="showcase-stars">★ ★ ★ ★ ★</div>
+                <div className="showcase-author-block">
+                  <h4 className="showcase-author-name">VIKRAMADITYA DESHMUKH</h4>
+                  <span className="showcase-author-role">Senior Production Lead, Zenith Aerospace</span>
+                </div>
+                <div className="showcase-pill-badge">
+                  ✓ DMG MORI 24K RPM • ISO G0.4 Balanced
+                </div>
+              </div>
+            </div>
+
+            {/* CENTER COLUMN: 3D Spindle Showcase Platform (Exact Reference Match) */}
+            <div className="showcase-center-platform">
+              <img
+                src="/images/reviews.png"
+                alt="High-Precision CNC Spindle Showcase Platform"
+                className="showcase-spindle-3d"
+              />
+            </div>
+
+            {/* RIGHT COLUMN: 3 Cards */}
+            <div className="showcase-col showcase-col-right">
+              {/* Card 3 */}
+              <div className="showcase-card">
+                <div className="showcase-quote-icon">“</div>
+                <p className="showcase-card-quote">
+                  "The 1-Year full quality warranty and transparent failure analysis report gave us complete peace of mind. GPS is our go-to engineering partner for all high-frequency spindle reconditioning."
+                </p>
+                <div className="showcase-stars">★ ★ ★ ★ ★</div>
+                <div className="showcase-author-block">
+                  <h4 className="showcase-author-name">MAHESH KULKARNI</h4>
+                  <span className="showcase-author-role">Director of Engineering, Kulkarni Mould &amp; Die</span>
+                </div>
+                <div className="showcase-pill-badge">
+                  ✓ Fischer High-Freq • 1-Year Warranty
+                </div>
+              </div>
+
+              {/* Card 4 */}
+              <div className="showcase-card">
+                <div className="showcase-quote-icon">“</div>
+                <p className="showcase-card-quote">
+                  "Outstanding support and precision engineering. The spindle we received performed even better than OEM specifications. Highly recommended for critical applications."
+                </p>
+                <div className="showcase-stars">★ ★ ★ ★ ★</div>
+                <div className="showcase-author-block">
+                  <h4 className="showcase-author-name">SANDIP PATIL</h4>
+                  <span className="showcase-author-role">Maintenance Head, Precision Components Ltd.</span>
+                </div>
+                <div className="showcase-pill-badge">
+                  ✓ Reliability • Precision • Performance
+                </div>
+              </div>
+
+              {/* Card 5 */}
+              <div className="showcase-card">
+                <div className="showcase-quote-icon">“</div>
+                <p className="showcase-card-quote">
+                  "Quick turnaround, excellent communication, and consistent quality. GPS Spindles has reduced our unplanned downtime significantly."
+                </p>
+                <div className="showcase-stars">★ ★ ★ ★ ★</div>
+                <div className="showcase-author-block">
+                  <h4 className="showcase-author-name">ANIKET RATHOD</h4>
+                  <span className="showcase-author-role">Production Manager, AutoForge Industries</span>
+                </div>
+                <div className="showcase-pill-badge">
+                  ✓ Zero Downtime • Trusted Partner
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Full-Width Stats Metric Bar */}
+          <div className="showcase-bottom-bar">
+            {/* Metric 1 */}
+            <div className="showcase-metric-item">
+              <div className="showcase-metric-icon">
+                <svg width="26" height="26" fill="none" stroke="#2563eb" strokeWidth="2.2" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg>
+              </div>
+              <div className="showcase-metric-text">
+                <span className="metric-num">3,000+</span>
+                <span className="metric-label">Happy Customers</span>
+              </div>
+            </div>
+
+            <div className="showcase-metric-divider"></div>
+
+            {/* Metric 2 */}
+            <div className="showcase-metric-item">
+              <div className="showcase-metric-icon">
+                <svg width="26" height="26" fill="none" stroke="#2563eb" strokeWidth="2.2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 11l2 2 4-4" />
+                </svg>
+              </div>
+              <div className="showcase-metric-text">
+                <span className="metric-num">1-Year</span>
+                <span className="metric-label">Warranty Assured</span>
+              </div>
+            </div>
+
+            <div className="showcase-metric-divider"></div>
+
+            {/* Metric 3 */}
+            <div className="showcase-metric-item">
+              <div className="showcase-metric-icon">
+                <svg width="26" height="26" fill="none" stroke="#2563eb" strokeWidth="2.2" viewBox="0 0 24 24">
+                  <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+              <div className="showcase-metric-text">
+                <span className="metric-num">Sub-Micron</span>
+                <span className="metric-label">Precision Guaranteed</span>
+              </div>
+            </div>
+
+            <div className="showcase-metric-divider"></div>
+
+            {/* Metric 4 */}
+            <div className="showcase-metric-item">
+              <div className="showcase-metric-icon">
+                <svg width="26" height="26" fill="none" stroke="#2563eb" strokeWidth="2.2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div className="showcase-metric-text">
+                <span className="metric-num">4–8 Days</span>
+                <span className="metric-label">Typical Turnaround</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* Brand Marquee */}
       <section className="section alt-bg" style={{ paddingBottom: '3rem' }}>
