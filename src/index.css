@@ -1897,8 +1897,9 @@ a:hover {
 
 /* Logo card grid */
 .proc-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.85rem;
 }
 
@@ -1912,6 +1913,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   min-height: 64px;
+  width: 170px; /* Fixed width for centering */
+  flex-shrink: 0;
   cursor: default;
   transition: all 0.22s ease;
   overflow: hidden;
