@@ -2,6 +2,7 @@ import React from 'react';
 import BrandMarquee from '../components/BrandMarquee';
 import CadDrawing from '../components/CadDrawing';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
+import VideoShowcase from '../components/VideoShowcase';
 
 export default function Home({ onNavigate }) {
   return (
@@ -137,6 +138,9 @@ export default function Home({ onNavigate }) {
           </div>
         </section>
       </section>
+
+      {/* Video Showcase — Professional Introduction */}
+      <VideoShowcase />
 
       {/* Rebuild Services Grid (No icons, clean indices) */}
       <section className="section container" style={{ paddingTop: 'var(--space-xxl)' }}>
@@ -836,14 +840,26 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Brand Marquee */}
-      <section className="section alt-bg" style={{ paddingBottom: '3rem' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <div style={{ marginBottom: '0.75rem' }}>
-              <span className="label-tag">Compatible Machinery</span>
-            </div>
-            <h2>OEM Brands Serviced &amp; Restored</h2>
+      <section className="section alt-bg">
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div style={{ marginBottom: '0.75rem' }}>
+            <span className="label-tag-enhanced">
+              <span className="dot"></span>
+              Compatible Machinery
+            </span>
           </div>
+          <h2 style={{
+            fontSize: '1.85rem',
+            fontWeight: 800,
+            color: 'var(--text-primary)',
+            marginBottom: '0.5rem',
+            borderBottom: 'none',
+            textAlign: 'center',
+            paddingBottom: 0,
+          }}>
+            OEM Brands Serviced &amp; Restored
+          </h2>
+          <div className="title-divider-enhanced" style={{ margin: '1rem auto 2rem' }}></div>
           <BrandMarquee />
         </div>
       </section>
