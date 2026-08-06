@@ -63,21 +63,40 @@ export default function Footer({ onNavigate }) {
           boxShadow: '0 24px 60px -10px rgba(29, 78, 216, 0.35)'
         }}
       >
-        {/* Top Huge Watermark Typography */}
-        <div style={{ overflow: 'hidden', marginBottom: '2.5rem', userSelect: 'none', textAlign: 'center' }}>
-          <div
-            style={{
-              fontSize: 'clamp(5rem, 16vw, 14rem)',
-              fontWeight: 900,
-              letterSpacing: '-0.05em',
-              color: 'rgba(255, 255, 255, 0.95)',
-              textTransform: 'uppercase',
-              whiteSpace: 'nowrap',
-              lineHeight: 0.8,
-              textAlign: 'center'
-            }}
-          >
-            GPS
+        {/* Top Watermark Typography with Tight Letter Spacing */}
+        <div style={{ marginBottom: '2.5rem', userSelect: 'none', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', maxWidth: '520px', width: '100%', alignItems: 'center', textAlign: 'center' }}>
+            
+            {/* G - GENERAL */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ fontSize: 'clamp(5.5rem, 16vw, 13.5rem)', fontWeight: 900, lineHeight: 0.8, color: 'rgba(255, 255, 255, 0.95)', letterSpacing: '-0.06em' }}>
+                G
+              </div>
+              <div style={{ fontSize: 'clamp(0.7rem, 1.4vw, 1.15rem)', fontWeight: 800, color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+                GENERAL
+              </div>
+            </div>
+
+            {/* P - PRECISION */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ fontSize: 'clamp(5.5rem, 16vw, 13.5rem)', fontWeight: 900, lineHeight: 0.8, color: 'rgba(255, 255, 255, 0.95)', letterSpacing: '-0.06em' }}>
+                P
+              </div>
+              <div style={{ fontSize: 'clamp(0.7rem, 1.4vw, 1.15rem)', fontWeight: 800, color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+                PRECISION
+              </div>
+            </div>
+
+            {/* S - SPINDLES */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ fontSize: 'clamp(5.5rem, 16vw, 13.5rem)', fontWeight: 900, lineHeight: 0.8, color: 'rgba(255, 255, 255, 0.95)', letterSpacing: '-0.06em' }}>
+                S
+              </div>
+              <div style={{ fontSize: 'clamp(0.7rem, 1.4vw, 1.15rem)', fontWeight: 800, color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+                SPINDLES
+              </div>
+            </div>
+
           </div>
         </div>
 

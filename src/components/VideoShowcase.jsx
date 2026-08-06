@@ -1,10 +1,47 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SlideInLeft, SlideInRight, ScaleUp } from './MotionWrapper';
 
 export default function VideoShowcase() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    const sec = sectionRef.current;
+    if (!vid || !sec) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Unmute when video component scrolls into view
+            vid.muted = false;
+            vid.play().then(() => {
+              setIsPlaying(true);
+            }).catch(() => {
+              // Fallback if browser autoplay policy blocks unmuted audio
+              vid.muted = true;
+              vid.play().catch(() => {});
+              setIsPlaying(false);
+            });
+          } else {
+            // Mute sound when user scrolls past / away from video component
+            vid.muted = true;
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.4 } // Triggers when 40% of video component is in viewport
+    );
+
+    observer.observe(sec);
+
+    return () => {
+      observer.unobserve(sec);
+    };
+  }, []);
 
   const handleToggleSound = () => {
     const vid = videoRef.current;
@@ -31,7 +68,7 @@ export default function VideoShowcase() {
   };
 
   return (
-    <section className="section" id="video-showcase" style={{ paddingBottom: '3rem' }}>
+    <section ref={sectionRef} className="section" id="video-showcase" style={{ paddingBottom: '3rem' }}>
       {/* Header inside container */}
       <div className="container">
         {/* Exact Machin 2-Column Section Header */}
@@ -50,10 +87,10 @@ export default function VideoShowcase() {
         </div>
       </div>
 
-      {/* Full-Width Edge-to-Edge Video Viewport Container */}
+      {/* Full-Width Edge-to-Edge Widescreen Video Viewport */}
       <ScaleUp delay={0.1}>
         <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', overflow: 'hidden', background: '#0f172a' }}>
-          <div className="proc-video-container" style={{ borderRadius: 0, borderLeft: 'none', borderRight: 'none', height: '560px', aspectRatio: 'unset' }}>
+          <div className="proc-video-container" style={{ width: '100%', height: 'auto', aspectRatio: '16 / 9', borderRadius: 0, border: 'none' }}>
             <video
               ref={videoRef}
               className={`proc-video ${videoLoaded ? 'loaded' : ''}`}
@@ -64,15 +101,13 @@ export default function VideoShowcase() {
               playsInline
               preload="metadata"
               onCanPlay={() => setVideoLoaded(true)}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
             />
             {/* Gradient overlay for readability */}
             <div className="proc-video-overlay" />
 
-
-
             {/* Top-right: Controls (Mute & Fullscreen) */}
-            <div className="vs-ctrl-row" style={{ position: 'absolute', top: '1.5rem', right: '2rem', display: 'flex', gap: '0.5rem' }}>
+            <div className="vs-ctrl-row" style={{ position: 'absolute', top: '1.5rem', right: '2.5rem', display: 'flex', gap: '0.5rem', zIndex: 10 }}>
               <button className="vs-ctrl-btn" onClick={handleToggleSound} aria-label={isPlaying ? 'Mute' : 'Unmute'} style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.65rem', borderRadius: '50%', cursor: 'pointer', display: 'flex' }}>
                 {isPlaying ? (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
