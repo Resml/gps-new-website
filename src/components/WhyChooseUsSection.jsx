@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const advantages = [
   {
@@ -62,7 +62,6 @@ const advantages = [
 
 export default function WhyChooseUsSection({ onNavigate }) {
   const cardRefs = useRef([]);
-  const [selectedFullscreenCard, setSelectedFullscreenCard] = useState(null);
 
   const scrollToCard = (index) => {
     if (cardRefs.current[index]) {
@@ -74,66 +73,52 @@ export default function WhyChooseUsSection({ onNavigate }) {
     <section className="why-pro-section" id="why-choose-us" style={{ position: 'relative', paddingBottom: '4rem' }}>
       {/* Section Header */}
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="why-pro-header"
-        >
-          <div className="why-pro-label-group">
-            <motion.span
-              animate={{ scale: [1, 1.04, 1] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-              className="why-pro-badge"
-            >
-              <span className="why-badge-dot"></span>
+        {/* Exact Machin 2-Column Section Header */}
+        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
               PROVEN ENGINEERING VALUE
-            </motion.span>
+            </span>
           </div>
-          
-          <h2 className="why-pro-title">
-            Why <span className="why-navy-span">hundreds of industrial companies</span><br />
-            choose GPS Spindles
-          </h2>
-          <div className="why-pro-divider"></div>
-          <p className="why-pro-subtitle">
-            Each advantage is backed by real engineering data, verified results, and the trust of 3,000+ manufacturing clients across India.
-          </p>
+          <div>
+            <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: '0 0 1rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+              Why <span style={{ color: '#1d4ed8', fontWeight: 700 }}>hundreds of industrial companies</span> choose GPS Spindles
+            </h2>
+            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', margin: '0 0 1.5rem 0' }}>
+              Each advantage is backed by real engineering data, verified results, and the trust of 3,000+ manufacturing clients across India.
+            </p>
 
-          {/* Quick Jump Pill Indicators */}
-          <div className="why-switcher-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '2rem', flexWrap: 'wrap' }}>
-            {advantages.map((adv, index) => (
-              <button
-                key={adv.id}
-                onClick={() => scrollToCard(index)}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(15, 23, 42, 0.12)',
-                  background: '#ffffff',
-                  color: '#334155',
-                  fontWeight: 700,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.25s ease',
-                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.05)',
-                  outline: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}
-              >
-                <span style={{ fontSize: '0.75rem', opacity: 0.7, color: '#1d4ed8', fontWeight: 800 }}>{adv.id}.</span>
-                <span>{adv.tag}</span>
-              </button>
-            ))}
+            {/* Quick Jump Pill Indicators */}
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              {advantages.map((adv, index) => (
+                <button
+                  key={adv.id}
+                  onClick={() => scrollToCard(index)}
+                  style={{
+                    padding: '0.55rem 1.1rem',
+                    borderRadius: '10px',
+                    border: '1px solid #cbd5e1',
+                    background: '#ffffff',
+                    color: '#1e293b',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    boxShadow: '0 2px 6px rgba(15,23,42,0.04)'
+                  }}
+                >
+                  <span style={{ color: '#1d4ed8' }}>{adv.id}.</span> {adv.tag}
+                </button>
+              ))}
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* ══ FULL-SCREEN SCALE-DOWN ON SCROLL CARD CONTAINER ══════════════ */}
-      <div className="container" style={{ marginTop: '3rem', position: 'relative' }}>
+      <div className="container" style={{ marginTop: '1rem', position: 'relative' }}>
         <div className="why-sticky-stack-list" style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
           {advantages.map((item, idx) => {
             const isEven = idx % 2 === 1;
@@ -173,222 +158,74 @@ export default function WhyChooseUsSection({ onNavigate }) {
                       className="why-pro-img"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
-                    <div className="why-pro-img-overlay"></div>
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(15,23,42,0.8) 100%)' }} />
+                  </div>
 
-                    {/* Floating animated card index number badge */}
-                    <motion.div
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ repeat: Infinity, duration: 4 + idx * 0.5, ease: 'easeInOut' }}
-                      className="why-pro-img-number"
-                      style={{
-                        background: 'linear-gradient(135deg, #1d4ed8, #2563eb)',
-                        color: '#ffffff',
-                        fontWeight: 900,
-                        fontSize: '1.4rem',
-                        boxShadow: '0 8px 24px rgba(29, 78, 216, 0.4)'
-                      }}
-                    >
-                      {item.id}
-                    </motion.div>
+                  {/* Top-Left Advantage Badge */}
+                  <div className="why-pro-badge-floating">
+                    <span className="why-pro-num">{item.id}</span>
+                    <span className="why-pro-badge-txt">{item.badge}</span>
                   </div>
                 </div>
 
                 {/* Content Panel */}
-                <div className="why-pro-content-panel" style={{ padding: '2.5rem' }}>
-                  <div className="why-pro-content-inner">
-                    <span className="why-card-badge" style={{ background: 'rgba(29, 78, 216, 0.1)', color: '#1d4ed8', fontWeight: 800 }}>
-                      {item.badge}
-                    </span>
-                    
-                    <h3 className="why-card-title" style={{ fontSize: '1.65rem', marginTop: '0.75rem', fontWeight: 800, color: '#0f172a' }}>
+                <div className="why-pro-content-panel" style={{ padding: '2.5rem 2.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(29, 78, 216, 0.08)', color: '#1d4ed8', fontSize: '0.75rem', fontWeight: 800, padding: '4px 10px', borderRadius: '6px', marginBottom: '0.85rem' }}>
+                      ✓ {item.tag}
+                    </div>
+
+                    <h3 className="why-pro-card-title" style={{ fontSize: '1.65rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.3', margin: '0 0 1rem 0' }}>
                       {item.title}
                     </h3>
-                    
-                    <div className="why-card-divider" style={{ width: '60px', height: '3px', background: '#2563eb', margin: '1rem 0' }}></div>
-                    
-                    <p className="why-card-desc" style={{ color: '#475569', fontSize: '0.96rem', lineHeight: '1.7' }}>
+
+                    <p className="why-pro-card-desc" style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.7', margin: '0 0 1.75rem 0' }}>
                       {item.desc}
                     </p>
+                  </div>
 
-                    {/* Metrics Grid */}
-                    <div className="why-card-metrics" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', margin: '1.75rem 0' }}>
-                      {item.metrics.map((m, mi) => (
-                        <motion.div
-                          key={mi}
-                          whileHover={{ y: -3, scale: 1.03 }}
-                          className="why-metric-item"
-                          style={{
-                            background: '#f8fafc',
-                            border: '1px solid rgba(15, 23, 42, 0.08)',
-                            borderRadius: '12px',
-                            padding: '0.85rem 0.5rem',
-                            textAlign: 'center'
-                          }}
-                        >
-                          <span className="why-metric-val" style={{ display: 'block', color: '#1d4ed8', fontWeight: 900, fontSize: '1.35rem' }}>
+                  <div>
+                    {/* Metrics Row */}
+                    <div className="why-pro-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem', marginBottom: '1.5rem' }}>
+                      {item.metrics.map((m, mIdx) => (
+                        <div key={mIdx} className="why-pro-metric-col">
+                          <span className="why-pro-metric-val" style={{ fontSize: '1.4rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>
                             {m.val}
                           </span>
-                          <span className="why-metric-lbl" style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700 }}>
+                          <span className="why-pro-metric-lbl" style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>
                             {m.lbl}
                           </span>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.03, y: -2 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="why-card-cta"
-                      onClick={() => onNavigate('contact')}
+                    {/* Bottom CTA Action Link */}
+                    <button
+                      onClick={() => onNavigate && onNavigate('contact')}
                       style={{
                         background: '#1d4ed8',
                         color: '#ffffff',
                         border: 'none',
-                        borderRadius: '12px',
-                        padding: '0.8rem 1.6rem',
+                        borderRadius: '10px',
+                        padding: '0.75rem 1.4rem',
                         fontWeight: 800,
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                         cursor: 'pointer',
-                        boxShadow: '0 6px 18px rgba(29, 78, 216, 0.35)',
                         display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '8px'
+                        gap: '8px',
+                        boxShadow: '0 4px 14px rgba(29, 78, 216, 0.3)'
                       }}
                     >
-                      <span>Get a Free Quote</span>
+                      <span>TALK TO SPINDLE ENGINEER</span>
                       <span>&rarr;</span>
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
-      </div>
-
-      {/* ══ FULLSCREEN MODAL VIEW FOR SELECTED CARD ══════════════════ */}
-      <AnimatePresence>
-        {selectedFullscreenCard && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedFullscreenCard(null)}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              zIndex: 9999,
-              background: 'rgba(15, 23, 42, 0.88)',
-              backdropFilter: 'blur(16px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '2rem'
-            }}
-          >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.85, opacity: 0, y: 30 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              style={{
-                width: '100%',
-                maxWidth: '900px',
-                background: '#ffffff',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 30px 70px rgba(0, 0, 0, 0.4)',
-                position: 'relative'
-              }}
-            >
-              <button
-                onClick={() => setSelectedFullscreenCard(null)}
-                style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '16px',
-                  background: 'rgba(15, 23, 42, 0.75)',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '36px',
-                  height: '36px',
-                  cursor: 'pointer',
-                  fontSize: '1.2rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 10
-                }}
-              >
-                ✕
-              </button>
-
-              <div style={{ height: '350px', position: 'relative' }}>
-                <img
-                  src={selectedFullscreenCard.image}
-                  alt={selectedFullscreenCard.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </div>
-
-              <div style={{ padding: '2.5rem' }}>
-                <span className="why-card-badge" style={{ background: 'rgba(29, 78, 216, 0.1)', color: '#1d4ed8', fontWeight: 800 }}>
-                  {selectedFullscreenCard.badge}
-                </span>
-                <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginTop: '0.5rem', color: '#0f172a' }}>
-                  {selectedFullscreenCard.title}
-                </h2>
-                <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.7', marginTop: '1rem' }}>
-                  {selectedFullscreenCard.desc}
-                </p>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '2rem' }}>
-                  {selectedFullscreenCard.metrics.map((m, mi) => (
-                    <div key={mi} style={{ background: '#f8fafc', padding: '1rem', borderRadius: '12px', textAlign: 'center', border: '1px solid #e2e8f0' }}>
-                      <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#1d4ed8', display: 'block' }}>{m.val}</span>
-                      <span style={{ fontSize: '0.82rem', color: '#64748b', fontWeight: 700 }}>{m.lbl}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Bottom CTA Banner */}
-      <div className="container" style={{ marginTop: '4rem' }}>
-        <motion.div
-          whileHover={{ y: -4, boxShadow: '0 24px 50px -12px rgba(15, 23, 42, 0.18)' }}
-          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="why-pro-bottom-cta"
-          style={{ borderRadius: '20px' }}
-        >
-          <div className="bottom-cta-left">
-            <h3 className="bottom-cta-title">Ready to restore your CNC spindle to peak performance?</h3>
-            <p className="bottom-cta-sub">Get a technical consultation and rebuild estimate from our engineers within 2 hours.</p>
-          </div>
-          <div className="bottom-cta-actions">
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => onNavigate('contact')}
-              className="btn-navy-primary"
-            >
-              MAKE AN INQUIRY NOW &nbsp;&rarr;
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => onNavigate('services')}
-              className="btn-navy-secondary"
-            >
-              VIEW REBUILD PROCESS
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
