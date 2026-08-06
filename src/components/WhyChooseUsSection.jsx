@@ -132,67 +132,105 @@ export default function WhyChooseUsSection({ onNavigate }) {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-                className={`why-pro-card-row hovered ${isEven ? 'reverse' : ''}`}
                 style={{
                   position: 'sticky',
                   top: `${stickyTopOffset}px`,
                   zIndex: idx + 10,
                   background: '#ffffff',
                   borderRadius: '24px',
-                  border: '1px solid rgba(15, 23, 42, 0.12)',
-                  boxShadow: `0 ${20 + idx * 8}px ${45 + idx * 10}px -10px rgba(15, 23, 42, 0.14)`,
+                  border: '1px solid #cbd5e1',
+                  boxShadow: `0 ${16 + idx * 6}px ${40 + idx * 8}px -10px rgba(15, 23, 42, 0.12)`,
                   overflow: 'hidden',
                   margin: '0 auto',
-                  maxWidth: '100%'
+                  maxWidth: '100%',
+                  display: 'grid',
+                  gridTemplateColumns: isEven ? '1.1fr 1fr' : '1fr 1.1fr'
                 }}
               >
                 {/* Image Panel */}
-                <div className="why-pro-img-panel" style={{ position: 'relative', overflow: 'hidden' }}>
-                  <div
-                    className="why-pro-img-wrap"
-                    style={{ height: '100%', minHeight: '380px' }}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="why-pro-img"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(15,23,42,0.8) 100%)' }} />
-                  </div>
+                <div
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    background: '#f8fafc',
+                    padding: '2rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justify: 'center',
+                    order: isEven ? 2 : 1,
+                    borderRight: isEven ? 'none' : '1px solid #e2e8f0',
+                    borderLeft: isEven ? '1px solid #e2e8f0' : 'none'
+                  }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxHeight: '340px',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                  />
 
-                  {/* Top-Left Advantage Badge */}
-                  <div className="why-pro-badge-floating">
-                    <span className="why-pro-num">{item.id}</span>
-                    <span className="why-pro-badge-txt">{item.badge}</span>
+                  {/* Top-Left Advantage Pill */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '16px',
+                      left: '16px',
+                      zIndex: 5,
+                      background: 'rgba(15, 23, 42, 0.88)',
+                      backdropFilter: 'blur(8px)',
+                      color: '#ffffff',
+                      padding: '6px 14px',
+                      borderRadius: '10px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      border: '1px solid rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#60a5fa' }}>{item.id}</span>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#ffffff', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{item.badge}</span>
                   </div>
                 </div>
 
                 {/* Content Panel */}
-                <div className="why-pro-content-panel" style={{ padding: '2.5rem 2.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div
+                  style={{
+                    padding: '2.5rem 2.5rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justify: 'space-between',
+                    order: isEven ? 1 : 2,
+                    background: '#ffffff'
+                  }}
+                >
                   <div>
                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(29, 78, 216, 0.08)', color: '#1d4ed8', fontSize: '0.75rem', fontWeight: 800, padding: '4px 10px', borderRadius: '6px', marginBottom: '0.85rem' }}>
                       ✓ {item.tag}
                     </div>
 
-                    <h3 className="why-pro-card-title" style={{ fontSize: '1.65rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.3', margin: '0 0 1rem 0' }}>
+                    <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.3', margin: '0 0 1rem 0' }}>
                       {item.title}
                     </h3>
 
-                    <p className="why-pro-card-desc" style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.7', margin: '0 0 1.75rem 0' }}>
+                    <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.7', margin: '0 0 1.75rem 0' }}>
                       {item.desc}
                     </p>
                   </div>
 
                   <div>
                     {/* Metrics Row */}
-                    <div className="why-pro-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem', marginBottom: '1.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem', marginBottom: '1.5rem' }}>
                       {item.metrics.map((m, mIdx) => (
-                        <div key={mIdx} className="why-pro-metric-col">
-                          <span className="why-pro-metric-val" style={{ fontSize: '1.4rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>
+                        <div key={mIdx}>
+                          <span style={{ fontSize: '1.4rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>
                             {m.val}
                           </span>
-                          <span className="why-pro-metric-lbl" style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>
                             {m.lbl}
                           </span>
                         </div>
