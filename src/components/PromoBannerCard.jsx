@@ -1,7 +1,14 @@
 import React from 'react';
 import { ScaleUp, FadeUp } from './MotionWrapper';
 
-export default function PromoBannerCard({ onNavigate }) {
+export default function PromoBannerCard({
+  onNavigate,
+  image = "/images/maximize_image.png",
+  brandTag = "GPS SPINDLES",
+  title = <>Minimize<br />Costs,<br />Maximize<br />Profits</>,
+  btnText = "Get Free Quote",
+  navTarget = "contact"
+}) {
   return (
     <div className="container promo-banner-container" style={{ margin: '4rem auto' }}>
       <ScaleUp>
@@ -9,13 +16,13 @@ export default function PromoBannerCard({ onNavigate }) {
           {/* Left Side: Dark Machining Photography + Brand Overlay */}
           <div className="promo-banner-left">
             <img
-              src="/images/maximize_image.png"
+              src={image}
               alt="General Precision Spindle Manufacturing"
               className="promo-banner-img"
             />
             <div className="promo-banner-overlay" />
             <div className="promo-banner-brand-tag">
-              <span className="promo-brand-dot"></span> GPS SPINDLES
+              <span className="promo-brand-dot"></span> {brandTag}
             </div>
           </div>
 
@@ -23,19 +30,16 @@ export default function PromoBannerCard({ onNavigate }) {
           <div className="promo-banner-right">
             <FadeUp delay={0.2}>
               <h2 className="promo-banner-title" style={{ borderBottom: 'none', paddingBottom: 0 }}>
-                Minimize<br />
-                Costs,<br />
-                Maximize<br />
-                Profits
+                {title}
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.3}>
               <button
-                onClick={() => onNavigate && onNavigate('contact')}
+                onClick={() => onNavigate && onNavigate(navTarget)}
                 className="promo-banner-btn"
               >
-                <span className="promo-btn-text">Get Free Quote</span>
+                <span className="promo-btn-text">{btnText}</span>
                 <span className="promo-btn-arrow">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>

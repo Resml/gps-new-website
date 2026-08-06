@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { brandLogos } from '../components/BrandLogos';
 import { SlideInLeft, SlideInRight, ScaleUp, FadeUp } from '../components/MotionWrapper';
-import FoundersShowcase from '../components/FoundersShowcase';
+import PromoBannerCard from '../components/PromoBannerCard';
 
 /* ── 6-Step process data ─────────────────────────────────── */
 const steps = [
@@ -599,10 +599,8 @@ export default function Services({ onNavigate }) {
         </div>
       </section>
 
-      {/* ══ FOUNDERS LEADERSHIP & CONSULTATION SHOWCASE ══════ */}
-      <section style={{ padding: '2rem 0 4rem 0' }}>
-        <FoundersShowcase onNavigate={onNavigate} />
-      </section>
+      {/* ══ HIGH-IMPACT PROCESS PROMO BANNER ══════════════════ */}
+      <PromoBannerCard onNavigate={onNavigate} />
 
     </div>
   );
