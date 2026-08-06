@@ -32,21 +32,21 @@ export default function Contact({ selectedSpindle, setSelectedSpindle }) {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2.5rem' }}>
               <div className="b2b-card">
-                <h3 style={{ fontSize: '1rem', marginBottom: '2px', color: 'var(--accent-primary)' }}>Manufacturing Phone</h3>
+                <h3 style={{ fontSize: '1rem', marginBottom: '2px', color: 'var(--accent-primary)' }}>Manufacturing Desk (Anil Vakude)</h3>
                 <p style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="tel:+919764252188" style={{ color: 'inherit', textDecoration: 'none' }}>+91 97642 52188</a></p>
                 <p style={{ fontSize: '0.8rem', marginBottom: 0, color: 'var(--text-muted)' }}>For manufacturing, custom spindle orders and new enquiries.</p>
               </div>
               
               <div className="b2b-card">
-                <h3 style={{ fontSize: '1rem', marginBottom: '2px', color: 'var(--accent-primary)' }}>Reconditioning Phone</h3>
+                <h3 style={{ fontSize: '1rem', marginBottom: '2px', color: 'var(--accent-primary)' }}>Reconditioning Desk (Sachin Kuchekar)</h3>
                 <p style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="tel:+919764032929" style={{ color: 'inherit', textDecoration: 'none' }}>+91 97640 32929</a></p>
                 <p style={{ fontSize: '0.8rem', marginBottom: 0, color: 'var(--text-muted)' }}>For urgent spindle repair &amp; emergency breakdown support. WhatsApp available 24×7.</p>
               </div>
 
               <div className="b2b-card">
                 <h3 style={{ fontSize: '1rem', marginBottom: '2px', color: 'var(--accent-primary)' }}>Email &amp; Tax Info</h3>
-                <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="mailto:anil.vakude@gpsspindles.net" style={{ color: 'inherit', textDecoration: 'none' }}>anil.vakude@gpsspindles.net</a></p>
-                <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="mailto:sachinkuchekar@gpsspindles.com" style={{ color: 'inherit', textDecoration: 'none' }}>sachinkuchekar@gpsspindles.com</a></p>
+                <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="mailto:anilvakude@gpsspindles.com" style={{ color: 'inherit', textDecoration: 'none' }}>anilvakude@gpsspindles.com</a></p>
+                <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}><a href="mailto:sachinkuchekar@gpsspindles.com" style={{ color: 'inherit', textDecoration: 'none' }}>sachinkuchekar@gpsspindles.com</a></p>
                 <p style={{ fontSize: '0.8rem', marginBottom: 0, color: 'var(--text-muted)', marginTop: '6px' }}><strong>GST No:</strong> 27AATFG1527D1ZF</p>
               </div>
 

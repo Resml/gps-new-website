@@ -7,8 +7,8 @@ const steps = [
     num: '01',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M8 14l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M8 14l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'Dismantling & Root-Cause Diagnosis',
@@ -20,8 +20,8 @@ const steps = [
     num: '02',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="4" y="6" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M4 11h20M9 6v5M19 6v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="4" y="6" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M4 11h20M9 6v5M19 6v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     title: 'Fixed-Price Damage Report',
@@ -33,8 +33,8 @@ const steps = [
     num: '03',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="5" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M14 4v3M14 21v3M4 14h3M21 14h3M6.9 6.9l2.1 2.1M19 19l2.1 2.1M6.9 21.1l2.1-2.1M19 9l2.1-2.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="14" cy="14" r="5" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M14 4v3M14 21v3M4 14h3M21 14h3M6.9 6.9l2.1 2.1M19 19l2.1 2.1M6.9 21.1l2.1-2.1M19 9l2.1-2.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     title: 'Taper & TCG Cylindrical Grinding',
@@ -46,8 +46,8 @@ const steps = [
     num: '04',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3L4 8v6c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V8L14 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M10 14l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M14 3L4 8v6c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V8L14 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M10 14l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'ISO Class 7 Cleanroom Assembly',
@@ -59,8 +59,8 @@ const steps = [
     num: '05',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M14 4a10 10 0 100 20A10 10 0 0014 4z" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M14 9v6l4 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M14 4a10 10 0 100 20A10 10 0 0014 4z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M14 9v6l4 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'Multi-Hour Run-In Test Stand',
@@ -72,8 +72,8 @@ const steps = [
     num: '06',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M5 8h18l-2 12H7L5 8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M10 8V6a4 4 0 018 0v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M5 8h18l-2 12H7L5 8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M10 8V6a4 4 0 018 0v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     title: 'Quality Seal & Crated Delivery',
@@ -117,45 +117,37 @@ const compareRows = [
   },
 ];
 
-/* ── Brand coverage data — use logo keys ──────────────────── */
-const brandGroups = [
-  {
-    region: 'Germany',
-    flag: '🇩🇪',
-    brands: ['DMG MORI', 'HERMLE', 'KESSLER', 'GMN', 'CHIRON', 'WEISS', 'BLOHM'],
-  },
-  {
-    region: 'Switzerland',
-    flag: '🇨🇭',
-    brands: ['FISCHER', 'STEP-TEC', 'SMS', 'IBAG'],
-  },
-  {
-    region: 'Japan',
-    flag: '🇯🇵',
-    brands: ['MAZAK', 'MAKINO', 'MATSUURA', 'FANUC', 'OKUMA', 'TOYODA'],
-  },
-  {
-    region: 'Italy & Others',
-    flag: '🇮🇹',
-    brands: ['HSD', 'OMLAT', 'COLOMBO'],
-  },
+/* ── Brand coverage data — flat list ──────────────────────── */
+const allBrands = [
+  'DMG MORI', 'HERMLE', 'KESSLER', 'GMN', 'CHIRON', 'WEISS', 'BLOHM',
+  'FISCHER', 'STEP-TEC', 'SMS', 'IBAG',
+  'MAZAK', 'MAKINO', 'MATSUURA', 'FANUC', 'OKUMA', 'TOYODA',
+  'HSD', 'OMLAT', 'COLOMBO'
 ];
 
 /* ── Upgrade cards ───────────────────────────────────────── */
 const upgrades = [
   {
-    icon: '⚙️',
     title: 'Si₃N₄ Ceramic Hybrid Bearing Retrofit',
     body: 'We retrofit mechanical and motorized spindles with silicon-nitride hybrid bearings. Ceramic balls are 60% lighter than steel, reducing centrifugal friction, enabling higher RPM limits, and lowering operating temperatures.',
-    stat: '60% lighter ball elements',
+    stat: '60% LIGHTER BALL ELEMENTS',
+    image: '/images/upgrade-bg-adobe-14.png',
+    scaleClass: 'scale-upgrade-01',
+    navTarget: 'contact',
+    navLabel: 'REQUEST RETROFIT',
   },
   {
-    icon: '⚡',
     title: 'Stator Winding & Encoder Synchronization',
     body: 'Integrated motor spindles often suffer stator short-circuits from coolant ingress. We rewind coils in-house, apply vacuum-pressure impregnation (VPI) epoxy, and calibrate Heidenhain / Fanuc / Kessler encoders to ensure accurate tool change orientation.',
-    stat: 'In-house VPI epoxy process',
+    stat: 'IN-HOUSE VPI EPOXY PROCESS',
+    image: '/images/upgrade-bg-adobe-12.png',
+    scaleClass: 'scale-upgrade-02',
+    navTarget: 'contact',
+    navLabel: 'REWINDING DETAILS',
   },
 ];
+
+
 
 /* ─────────────────────────────────────────────────────────── */
 
@@ -362,8 +354,8 @@ export default function Services({ onNavigate }) {
                 <div className="proc-compare-col proc-compare-oem">
                   <span className="proc-oem-val">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ marginRight: 6, flexShrink: 0 }}>
-                      <circle cx="7" cy="7" r="6" stroke="#94a3b8" strokeWidth="1.2"/>
-                      <path d="M4.5 7h5" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="7" cy="7" r="6" stroke="#94a3b8" strokeWidth="1.2" />
+                      <path d="M4.5 7h5" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                     {row.oem}
                   </span>
@@ -371,8 +363,8 @@ export default function Services({ onNavigate }) {
                 <div className="proc-compare-col proc-compare-gps">
                   <span className="proc-gps-val">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ marginRight: 6, flexShrink: 0 }}>
-                      <circle cx="7" cy="7" r="6" fill="#1e3a8a" stroke="#1e3a8a" strokeWidth="1.2"/>
-                      <path d="M4 7l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="7" cy="7" r="6" fill="#1e3a8a" stroke="#1e3a8a" strokeWidth="1.2" />
+                      <path d="M4 7l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {row.gps}
                   </span>
@@ -402,31 +394,20 @@ export default function Services({ onNavigate }) {
             </p>
           </div>
 
-          {/* Region tabs + logo grid */}
-          {brandGroups.map((group, gIdx) => (
-            <div key={gIdx} className="proc-brand-region-block">
-              {/* Region header */}
-              <div className="proc-brand-region-header">
-                <span className="proc-brand-flag">{group.flag}</span>
-                <span className="proc-brand-region">{group.region}</span>
-                <div className="proc-brand-region-line" />
-              </div>
-              {/* Logo cards */}
-              <div className="proc-logo-grid">
-                {group.brands.map((key, i) => {
-                  const logo = brandLogos[key];
-                  if (!logo) return null;
-                  return (
-                    <div key={i} className="proc-logo-card" title={key}>
-                      <div className="proc-logo-inner">
-                        {logo.svg}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          {/* Flat logo grid */}
+          <div className="proc-logo-grid">
+            {allBrands.map((key, i) => {
+              const logo = brandLogos[key];
+              if (!logo) return null;
+              return (
+                <div key={i} className="proc-logo-card" title={key}>
+                  <div className="proc-logo-inner">
+                    {logo.svg}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -444,25 +425,37 @@ export default function Services({ onNavigate }) {
               Spindle Retrofitting &amp; <span className="gradient-text">Electrical Rewinding</span>
             </h2>
             <div className="title-divider-enhanced"></div>
+            <p className="section-desc-enhanced">
+              High-efficiency motorized spindle re-engineering, ceramic bearing retrofits, and precision in-house stator rewinding.
+            </p>
           </div>
 
-          <div className="proc-upgrade-grid">
+          <div className="grid-2">
             {upgrades.map((u, idx) => (
-              <div key={idx} className="proc-upgrade-card">
-                <div className="proc-upgrade-icon-wrap">{u.icon}</div>
-                <div className="proc-upgrade-body">
-                  <h3 className="proc-upgrade-title">{u.title}</h3>
-                  <p className="proc-upgrade-desc">{u.body}</p>
-                  <div className="proc-upgrade-stat">
-                    <span className="proc-metric-dot" />
-                    {u.stat}
+              <div key={idx} className="b2b-card feature-card-split">
+                <div className="feature-card-left">
+                  <div className="feature-card-header">
+                    <h3 className="feature-title-split">{u.title}</h3>
                   </div>
+                  <div className="feature-divider"></div>
+                  <p className="feature-desc-split">{u.body}</p>
+                  <span onClick={() => onNavigate(u.navTarget)} className="nav-link-split">
+                    {u.navLabel} <span className="arrow">&rarr;</span>
+                  </span>
+                </div>
+                <div className="feature-card-right">
+                  <img
+                    src={u.image}
+                    alt={u.title}
+                    className={`feature-img-split ${u.scaleClass}`}
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* ══ CTA ═══════════════════════════════════════════════ */}
       <section className="section">

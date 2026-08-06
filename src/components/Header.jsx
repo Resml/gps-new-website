@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const navLinks = [
-  { id: 'home',         label: 'Home' },
+  { id: 'home', label: 'Home' },
   { id: 'capabilities', label: 'Capabilities' },
-  { id: 'products',     label: 'Products' },
-  { id: 'services',     label: 'Process' },
+  { id: 'products', label: 'Products' },
+  { id: 'services', label: 'Process' },
 ];
 
 export default function Header({ currentPage, onNavigate }) {
@@ -12,7 +12,7 @@ export default function Header({ currentPage, onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => setIsScrolled(window.scrollY > 15);
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -24,85 +24,100 @@ export default function Header({ currentPage, onNavigate }) {
   };
 
   return (
-    <>
+    <header className={`main-header-floating ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="pill-navbar-container">
 
+        {/* Logo Block */}
+        <div
+          className="pill-nav-item pill-logo-item"
+          onClick={() => handleLinkClick('home')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') handleLinkClick('home'); }}
+        >
+          <img src="/images/gps_logo_icon.png" alt="GPS Logo" className="pill-logo-img" />
+          <span className="pill-logo-title">GPS SPINDLES</span>
+        </div>
 
-      {/* Main header */}
-      <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container header-container">
+        <div className="pill-divider desktop-only" />
 
-          {/* Logo */}
+        {/* Desktop Nav Items with Dividers */}
+        <div className={`pill-nav-links desktop-only ${isMenuOpen ? 'mobile-active' : ''}`}>
+          {navLinks.map((link) => (
+            <React.Fragment key={link.id}>
+              <div
+                className={`pill-nav-item ${currentPage === link.id ? 'active' : ''}`}
+                onClick={() => handleLinkClick(link.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleLinkClick(link.id); }}
+              >
+                {link.label}
+              </div>
+              <div className="pill-divider" />
+            </React.Fragment>
+          ))}
+
+          {/* Secondary Contact Link */}
           <div
-            className="brand-logo-container"
-            onClick={() => handleLinkClick('home')}
+            className={`pill-nav-item ${currentPage === 'contact' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('contact')}
+            style={{ color: 'var(--accent-primary)', fontWeight: 800 }}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleLinkClick('home'); }}
-            aria-label="General Precision Spindles Home"
           >
-            <div className="logo-badge-wrapper">
-              <div className="logo-pulse-ring"></div>
-              <img
-                src="/images/gps_logo_icon.png"
-                alt="GPS Logo"
-                className="logo-badge-img"
-              />
-            </div>
-            <div className="logo-brand-lockup">
-              <div className="logo-brand-title">
-                <span className="brand-word-general">GENERAL </span>
-                <span className="brand-word-precision">PRECISION</span>
-              </div>
-              <span className="logo-brand-tagline">SPINDLE REPAIR &amp; ENGINEERING</span>
-            </div>
+            Contact Desk
           </div>
-
-          {/* Desktop nav */}
-          <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`} role="navigation">
-            <div className="nav-links-group">
-              {navLinks.map((link) => (
-                <span
-                  key={link.id}
-                  className={`nav-link ${currentPage === link.id ? 'active' : ''}`}
-                  onClick={() => handleLinkClick(link.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter') handleLinkClick(link.id); }}
-                >
-                  {link.label}
-                  {currentPage === link.id && <span className="nav-active-dot"></span>}
-                </span>
-              ))}
-            </div>
-
-            <div className="nav-cta-group">
-
-              <button
-                className="btn-quote-cta"
-                onClick={() => handleLinkClick('contact')}
-              >
-                Get Free Quote &nbsp;→
-              </button>
-            </div>
-          </nav>
-
-          {/* Hamburger */}
-          <button
-            className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
-      </header>
 
-      {/* Mobile menu overlay */}
+        {/* Primary CTA Button (Squint Style Pill with Arrow Badge) */}
+        <button
+          className="pill-cta-btn"
+          onClick={() => handleLinkClick('contact')}
+          aria-label="Get Free Quote"
+        >
+          <span>Get Free Quote</span>
+          <span className="pill-btn-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </button>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          className={`pill-hamburger ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="mobile-overlay" onClick={() => setIsMenuOpen(false)} />
+        <div className="mobile-pill-dropdown">
+          {navLinks.map((link) => (
+            <div
+              key={link.id}
+              className={`mobile-dropdown-item ${currentPage === link.id ? 'active' : ''}`}
+              onClick={() => handleLinkClick(link.id)}
+            >
+              {link.label}
+            </div>
+          ))}
+          <div
+            className={`mobile-dropdown-item ${currentPage === 'contact' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('contact')}
+            style={{ color: 'var(--accent-primary)', fontWeight: 800 }}
+          >
+            Contact Desk
+          </div>
+        </div>
       )}
-    </>
+    </header>
   );
 }
