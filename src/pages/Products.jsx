@@ -170,10 +170,10 @@ export default function Products({ onNavigate }) {
   const comparedProductsData = productsList.filter(p => compareList.includes(p.id));
 
   return (
-    <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
-      {/* ══ HERO SECTION ══════════════════════════════════════ */}
-      <section style={{ padding: '0.5rem 0 3.5rem 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+      {/* ══ HERO SECTION ════════════════════════════════════════ */}
+      <section style={{ padding: '4rem 0 3.5rem 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
             <div>

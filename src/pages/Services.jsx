@@ -207,10 +207,10 @@ export default function Services({ onNavigate }) {
   };
 
   return (
-    <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ══ HERO SECTION (DISTINCT PROCESS PAGE DESIGN) ══════════════════════ */}
-      <section style={{ padding: '0.5rem 0 3.5rem 0', background: '#ffffff' }}>
+      <section style={{ padding: '4rem 0 3.5rem 0', background: '#ffffff' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
             <div>
@@ -295,7 +295,7 @@ export default function Services({ onNavigate }) {
       {/* ══ 100VW FULL-WIDTH WORKSHOP VIDEO SHOWCASE ══════════ */}
       <section ref={videoSectionRef} style={{ padding: '4rem 0 3rem 0', background: '#f8fafc' }}>
         <div className="container">
-          <div className="machin-2col-header">
+          <div className="machin-2col-header" style={{ marginBottom: '4rem' }}>
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 WORKSHOP IN ACTION
@@ -303,8 +303,8 @@ export default function Services({ onNavigate }) {
             </SlideInLeft>
             <SlideInRight>
               <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Precision Spindle Rebuilding{' '}
-                <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Under ISO Class 7 Cleanroom Standards</span>
+                Take an exclusive look inside our state-of-the-art facility where precision spindle rebuilding happens{' '}
+                <span style={{ color: '#1d4ed8', fontWeight: 700 }}>under strict ISO Class 7 cleanroom standards.</span>
               </h2>
             </SlideInRight>
           </div>
@@ -355,7 +355,7 @@ export default function Services({ onNavigate }) {
       {/* ══ 6-STEP PROCESS SEQUENCE ═══════════════════════════ */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div className="machin-2col-header">
+          <div className="machin-2col-header" style={{ marginBottom: '4rem' }}>
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 PROCESS SEQUENCE
@@ -363,11 +363,9 @@ export default function Services({ onNavigate }) {
             </SlideInLeft>
             <SlideInRight>
               <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Standard Operating <span style={{ color: '#1d4ed8' }}>Rebuild Protocol</span>
+                Six documented stages — from intake inspection to certified delivery. Every spindle follows the exact same{' '}
+                <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Standard Operating Rebuild Protocol</span> with zero shortcuts.
               </h2>
-              <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
-                Six documented stages — from intake inspection to certified delivery. Every spindle follows the same SOP with zero shortcuts.
-              </p>
             </SlideInRight>
           </div>
 
@@ -526,7 +524,7 @@ export default function Services({ onNavigate }) {
       {/* ══ TECHNICAL UPGRADES & RETROFIT ═════════════════════ */}
       <section style={{ padding: '5rem 0', background: '#ffffff', borderTop: '1px solid #e2e8f0' }}>
         <div className="container">
-          <div className="machin-2col-header">
+          <div className="machin-2col-header" style={{ marginBottom: '4rem' }}>
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 PERFORMANCE UPGRADES
@@ -534,11 +532,9 @@ export default function Services({ onNavigate }) {
             </SlideInLeft>
             <SlideInRight>
               <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Spindle Retrofitting <span style={{ color: '#1d4ed8' }}>&amp; Electrical Rewinding</span>
+                High-efficiency motorized spindle re-engineering, ceramic bearing retrofits, and precision in-house{' '}
+                <span style={{ color: '#1d4ed8', fontWeight: 700 }}>stator rewinding.</span>
               </h2>
-              <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
-                High-efficiency motorized spindle re-engineering, ceramic bearing retrofits, and precision in-house stator rewinding.
-              </p>
             </SlideInRight>
           </div>
 

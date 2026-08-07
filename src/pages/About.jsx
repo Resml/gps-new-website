@@ -6,10 +6,10 @@ import PromoBannerCard from '../components/PromoBannerCard';
 
 export default function About({ onNavigate }) {
   return (
-    <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ══ 1. FRAMER INDUSTRIAL HERO SECTION ════════════════════════ */}
-      <section style={{ padding: '2rem 0 4rem 0', background: '#ffffff' }}>
+      <section style={{ padding: '4rem 0', background: '#ffffff' }}>
         <div className="container">
           
           {/* Top 2-Column Header Row */}
@@ -33,62 +33,87 @@ export default function About({ onNavigate }) {
                 <button
                   onClick={() => onNavigate && onNavigate('capabilities')}
                   style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '12px',
                     background: '#1d4ed8',
                     color: '#ffffff',
                     border: 'none',
-                    borderRadius: '4px',
-                    padding: '0.85rem 1.75rem',
+                    borderRadius: '8px',
+                    padding: '0.9rem 2rem',
                     fontWeight: 800,
                     fontSize: '0.85rem',
                     letterSpacing: '0.08em',
                     cursor: 'pointer',
                     textTransform: 'uppercase',
-                    boxShadow: '0 10px 25px -5px rgba(29, 78, 216, 0.4)'
+                    boxShadow: '0 10px 25px -5px rgba(29, 78, 216, 0.4)',
+                    transition: 'all 0.2s ease'
                   }}
+                  onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                  onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                 >
-                  EXPLORE CAPABILITIES
+                  EXPLORE CAPABILITIES <span>&rarr;</span>
                 </button>
                 <button
                   onClick={() => onNavigate && onNavigate('contact')}
                   style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '12px',
                     background: '#f8fafc',
                     color: '#0f172a',
                     border: '1px solid #cbd5e1',
-                    borderRadius: '4px',
-                    padding: '0.85rem 1.75rem',
+                    borderRadius: '8px',
+                    padding: '0.9rem 2rem',
                     fontWeight: 800,
                     fontSize: '0.85rem',
                     letterSpacing: '0.08em',
                     cursor: 'pointer',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = '#f1f5f9';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = '#f8fafc';
+                    e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
-                  CONTACT DESK
+                  CONTACT DESK <span>&rarr;</span>
                 </button>
               </div>
             </div>
           </div>
 
           {/* Full-Width HD Workshop Facility Banner */}
-          <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid #cbd5e1', boxShadow: '0 24px 60px -15px rgba(15,23,42,0.18)', height: '480px', position: 'relative' }}>
-            <img
-              src="/images/cylindrical_grinding.png"
-              alt="GPS Spindles Engineering Facility in Pune"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', height: '520px', position: 'relative', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', marginTop: '2rem' }}>
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: 'url(/images/cylindrical_grinding.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+              }}
             />
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.88) 100%)', padding: '2rem 2.5rem', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-              <div>
-                <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase' }}>PUNE HEADQUARTERS</span>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 900, color: '#ffffff', margin: '4px 0 0 0' }}>ISO Class 7 Cleanroom &amp; Sub-Micron Grinding Workshop</h3>
-              </div>
-              <div style={{ display: 'flex', gap: '2.5rem', textAlign: 'right' }}>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.92) 100%)', padding: '3rem 0', color: '#ffffff' }}>
+              <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
                 <div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#ffffff' }}>3,000+</div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 700 }}>Delivered Units</div>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase' }}>PUNE HEADQUARTERS</span>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 900, color: '#ffffff', margin: '4px 0 0 0' }}>ISO Class 7 Cleanroom &amp; Sub-Micron Grinding Workshop</h3>
                 </div>
-                <div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#ffffff' }}>1-Year</div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 700 }}>Full Warranty</div>
+                <div style={{ display: 'flex', gap: '3rem', textAlign: 'right' }}>
+                  <div>
+                    <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>3,000+</div>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 700, marginTop: '4px' }}>Delivered Units</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>1-Year</div>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 700, marginTop: '4px' }}>Full Warranty</div>
+                  </div>
                 </div>
               </div>
             </div>

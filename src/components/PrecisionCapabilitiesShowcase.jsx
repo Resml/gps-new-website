@@ -150,33 +150,23 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
               To eliminate particle contamination—the primary cause of premature spindle bearing failure—all precision assemblies are conducted inside a certified Class 10,000 positive-pressure cleanroom using climate stabilization.
             </p>
 
-            {/* 3 Value Cards */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1rem' }}>
-                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#1d4ed8' }}>✓</span> Ceramic Hybrid Precision Bearings
-                </div>
-                <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.5' }}>
-                  Silicon nitride (Si3N4) ceramic balls lower friction, decrease operating temperatures, and extend spindle speed capability.
-                </p>
+            {/* 2x2 Feature Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '0.85rem 1rem', borderRadius: '10px' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Ceramic Hybrid</div>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>Si3N4 precision bearings</div>
               </div>
-
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1rem' }}>
-                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#1d4ed8' }}>✓</span> Drawbar Force Measurement
-                </div>
-                <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.5' }}>
-                  Tool retention force is calibrated using digital electronic gauges to verify collet specs and prevent tool slippage under stress.
-                </p>
+              <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '0.85rem 1rem', borderRadius: '10px' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Climate Control</div>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>68°F (20°C) stabilization</div>
               </div>
-
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1rem' }}>
-                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#1d4ed8' }}>✓</span> Climate-Controlled Stabilization
-                </div>
-                <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.5' }}>
-                  Components are thermally normalized at 68°F (20°C) before sub-micron assembly to eliminate expansion inaccuracies.
-                </p>
+              <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '0.85rem 1rem', borderRadius: '10px' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Drawbar Force</div>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>Digital gauge calibration</div>
+              </div>
+              <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '0.85rem 1rem', borderRadius: '10px' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Zero-Particle</div>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>Positive-pressure assembly</div>
               </div>
             </div>
           </SlideInLeft>
