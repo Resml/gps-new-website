@@ -84,35 +84,9 @@ export default function WhyChooseUsSection({ onNavigate }) {
             <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: '0 0 1rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
               Why <span style={{ color: '#1d4ed8', fontWeight: 700 }}>hundreds of industrial companies</span> choose GPS Spindles
             </h2>
-            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', margin: '0 0 1.5rem 0' }}>
+            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', margin: '0' }}>
               Each advantage is backed by real engineering data, verified results, and the trust of 3,000+ manufacturing clients across India.
             </p>
-
-            {/* Quick Jump Pill Indicators */}
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              {advantages.map((adv, index) => (
-                <button
-                  key={adv.id}
-                  onClick={() => scrollToCard(index)}
-                  style={{
-                    padding: '0.55rem 1.1rem',
-                    borderRadius: '10px',
-                    border: '1px solid #cbd5e1',
-                    background: '#ffffff',
-                    color: '#1e293b',
-                    fontWeight: 700,
-                    fontSize: '0.82rem',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    boxShadow: '0 2px 6px rgba(15,23,42,0.04)'
-                  }}
-                >
-                  <span style={{ color: '#1d4ed8' }}>{adv.id}.</span> {adv.tag}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </div>

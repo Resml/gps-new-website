@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { brandLogos } from '../components/BrandLogos';
-import { SlideInLeft, SlideInRight, ScaleUp, FadeUp } from '../components/MotionWrapper';
+import { SlideInLeft, SlideInRight, ScaleUp, FadeUp, TextReveal, StaggerContainer, StaggerItem } from '../components/MotionWrapper';
 import PromoBannerCard from '../components/PromoBannerCard';
+import CadDrawing from '../components/CadDrawing';
 
 /* ── 6-Step process data ─────────────────────────────────── */
 const steps = [
@@ -208,22 +209,22 @@ export default function Services({ onNavigate }) {
   return (
     <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
 
-      {/* ══ HERO SECTION ══════════════════════════════════════ */}
+      {/* ══ HERO SECTION (DISTINCT PROCESS PAGE DESIGN) ══════════════════════ */}
       <section style={{ padding: '0.5rem 0 3.5rem 0', background: '#ffffff' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
             <div>
-              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'inline-block', marginBottom: '1rem' }}>
                 SOP DOCUMENTED REBUILD PROTOCOL
-              </div>
-              <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.18', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em' }}>
+              </span>
+              <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.18', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
                 Certified Spindle Rebuilding <span style={{ color: '#1d4ed8' }}>&amp; Optimization</span>
               </h1>
               <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: '0 0 2rem 0', maxWidth: '600px' }}>
                 Every spindle submitted for repair undergoes a document-controlled sequence of sub-micron diagnostic checks, CNC taper grinding, cleanroom assembly, and 100,000 RPM dynamic balancing.
               </p>
 
-              {/* 4 Metric Badges Row */}
+              {/* 3 Metric Badges Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.5rem' }}>
                 <div>
                   <span style={{ fontSize: '1.6rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>6 Steps</span>
@@ -240,7 +241,7 @@ export default function Services({ onNavigate }) {
               </div>
             </div>
 
-            {/* Right Card Panel — Signature Royal Blue Brand Container */}
+            {/* Right Card Panel — Signature Royal Blue Executive Benchmarks Container */}
             <div style={{ background: '#1d4ed8', borderRadius: '24px', padding: '2.5rem', color: '#ffffff', boxShadow: '0 20px 50px -10px rgba(29, 78, 216, 0.35)', border: '1px solid rgba(255,255,255,0.2)' }}>
               <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
                 EXECUTIVE BENCHMARKS
@@ -278,7 +279,7 @@ export default function Services({ onNavigate }) {
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  justify: 'center',
+                  justifyContent: 'center',
                   gap: '8px',
                   boxShadow: '0 4px 16px rgba(0,0,0,0.15)'
                 }}

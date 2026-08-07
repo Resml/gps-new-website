@@ -140,6 +140,7 @@ export default function Footer({ onNavigate }) {
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
                 {[
                   { id: 'home', label: 'Home Overview' },
+                  { id: 'about', label: 'About GPS Spindles' },
                   { id: 'capabilities', label: 'Technical Capabilities' },
                   { id: 'products', label: 'Spindles Catalog' },
                   { id: 'services', label: 'Rebuild & SOP Services' },

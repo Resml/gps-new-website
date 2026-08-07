@@ -6,16 +6,31 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
     <section className="section" id="precision-capabilities" style={{ background: '#ffffff', padding: '5rem 0' }}>
       <div className="container">
 
+        {/* Exact Machin 2-Column Section Header */}
+        <div className="machin-2col-header" style={{ marginBottom: '4rem' }}>
+          <div>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              PRECISION INFRASTRUCTURE &amp; CAPABILITIES
+            </span>
+          </div>
+          <div>
+            <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+              Advanced CNC grinding, dynamic balancing, and cleanroom assembly matching or exceeding{' '}
+              <span style={{ color: '#1d4ed8', fontWeight: 700 }}>sub-micron OEM factory parameters</span> for critical manufacturing operations.
+            </h2>
+          </div>
+        </div>
+
         {/* ══ 1. TAPER & SHAFT CYLINDRICAL GRINDING ══════════════ */}
         <div className="precision-grid-row">
 
           {/* Left Content */}
           <SlideInLeft>
-            <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#1d4ed8', letterSpacing: '0.1em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
               TAPER RECONSTRUCTION
             </span>
-            <h3 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.025em' }}>
-              Taper &amp; Shaft <span style={{ color: '#1d4ed8' }}>Cylindrical Grinding</span>
+            <h3 style={{ fontSize: '2.25rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+              Taper &amp; Shaft <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Cylindrical Grinding</span>
             </h3>
 
             <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.7', margin: '0 0 1.5rem 0' }}>
@@ -82,11 +97,11 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
 
           {/* Right Content */}
           <SlideInRight>
-            <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#1d4ed8', letterSpacing: '0.1em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
               CALIBRATION &amp; DIAGNOSTICS
             </span>
-            <h3 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.025em' }}>
-              Sensor-Based <span style={{ color: '#1d4ed8' }}>Dynamic Balancing</span>
+            <h3 style={{ fontSize: '2.25rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+              Sensor-Based <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Dynamic Balancing</span>
             </h3>
 
             <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.7', margin: '0 0 1.5rem 0' }}>
@@ -124,11 +139,11 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
 
           {/* Left Content */}
           <SlideInLeft>
-            <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#1d4ed8', letterSpacing: '0.1em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', display: 'inline-block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
               ASSEMBLY STANDARDS
             </span>
-            <h3 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.025em' }}>
-              ISO Class 7 <span style={{ color: '#1d4ed8' }}>Cleanroom Standards</span>
+            <h3 style={{ fontSize: '2.25rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.22', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+              ISO Class 7 <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Cleanroom Standards</span>
             </h3>
 
             <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.7', margin: '0 0 1.5rem 0' }}>

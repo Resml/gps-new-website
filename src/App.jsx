@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import Home from './pages/Home';
+import About from './pages/About';
 import Capabilities from './pages/Capabilities';
 import Products from './pages/Products';
 import Services from './pages/Services';
@@ -28,6 +29,8 @@ function App() {
     switch (currentPage) {
       case 'home':
         return <Home onNavigate={handleNavigate} />;
+      case 'about':
+        return <About onNavigate={handleNavigate} />;
       case 'capabilities':
         return <Capabilities onNavigate={handleNavigate} />;
       case 'products':

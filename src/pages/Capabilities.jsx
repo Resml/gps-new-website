@@ -96,7 +96,7 @@ export default function Capabilities({ onNavigate }) {
     return allSpecs.filter((item) => {
       const matchesCategory = activeCategoryFilter === 'all' || item.category === activeCategoryFilter;
       const q = searchQuery.toLowerCase();
-      const matchesSearch = !searchQuery || 
+      const matchesSearch = !searchQuery ||
         item.asset.toLowerCase().includes(q) ||
         item.rating.toLowerCase().includes(q) ||
         item.equip.toLowerCase().includes(q) ||
