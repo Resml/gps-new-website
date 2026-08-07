@@ -68,11 +68,11 @@ export default function VideoShowcase() {
   };
 
   return (
-    <section ref={sectionRef} className="section" id="video-showcase" style={{ paddingBottom: '3rem' }}>
+    <section ref={sectionRef} className="section" id="video-showcase" style={{ paddingBottom: '3rem', borderBottom: 'none' }}>
       {/* Header inside container */}
       <div className="container">
         {/* Exact Machin 2-Column Section Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+        <div className="machin-2col-header">
           <SlideInLeft>
             <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
               INSIDE OUR FACILITY

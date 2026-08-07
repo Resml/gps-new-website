@@ -10,18 +10,14 @@ export default function FoundersShowcase({ onNavigate }) {
         {/* Main Royal Blue Kern-Style Banner Container */}
         <ScaleUp>
           <div
+            className="founders-banner-card"
             style={{
               position: 'relative',
               background: 'linear-gradient(135deg, #1d4ed8 0%, #1e40af 60%, #172554 100%)',
               borderRadius: '28px',
               color: '#ffffff',
-              padding: '3.5rem 3rem',
               overflow: 'hidden',
-              boxShadow: '0 24px 60px -10px rgba(29, 78, 216, 0.35)',
-              display: 'grid',
-              gridTemplateColumns: 'minmax(320px, 1.1fr) minmax(320px, 1fr)',
-              gap: '3rem',
-              alignItems: 'center'
+              boxShadow: '0 24px 60px -10px rgba(29, 78, 216, 0.35)'
             }}
           >
             {/* Workshop Overlay Graphic */}
@@ -42,7 +38,7 @@ export default function FoundersShowcase({ onNavigate }) {
             <SlideInLeft style={{ position: 'relative', zIndex: 2 }}>
               
               {/* 2x2 Metric Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem' }}>
+              <div className="founders-banner-metrics" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem' }}>
                 
                 <div style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', paddingRight: '1.5rem' }}>
                   <div style={{ fontSize: '3.2rem', fontWeight: 900, lineHeight: '1', color: '#ffffff', letterSpacing: '-0.03em' }}>
@@ -115,16 +111,11 @@ export default function FoundersShowcase({ onNavigate }) {
 
             {/* Right Side: Both Founders Side-by-Side Full-Height Edge-to-Edge Portraits */}
             <SlideInRight
+              className="founders-portraits-wrapper"
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
                 gap: '1.25rem',
                 position: 'relative',
                 zIndex: 2,
-                height: 'calc(100% + 7rem)',
-                marginTop: '-3.5rem',
-                marginBottom: '-3.5rem',
-                marginRight: '-1.5rem',
                 alignSelf: 'stretch'
               }}
             >

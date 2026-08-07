@@ -294,7 +294,7 @@ export default function Services({ onNavigate }) {
       {/* ══ 100VW FULL-WIDTH WORKSHOP VIDEO SHOWCASE ══════════ */}
       <section ref={videoSectionRef} style={{ padding: '4rem 0 3rem 0', background: '#f8fafc' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 WORKSHOP IN ACTION
@@ -354,7 +354,7 @@ export default function Services({ onNavigate }) {
       {/* ══ 6-STEP PROCESS SEQUENCE ═══════════════════════════ */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 PROCESS SEQUENCE
@@ -422,7 +422,7 @@ export default function Services({ onNavigate }) {
       {/* ══ OEM COMPARISON MATRIX ═════════════════════════════ */}
       <section style={{ padding: '5rem 0', background: '#ffffff', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 B2B DECISION MATRIX
@@ -476,7 +476,7 @@ export default function Services({ onNavigate }) {
       {/* ══ GLOBAL BRAND COVERAGE GRID ════════════════════════ */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 GLOBAL BRAND COVERAGE
@@ -525,7 +525,7 @@ export default function Services({ onNavigate }) {
       {/* ══ TECHNICAL UPGRADES & RETROFIT ═════════════════════ */}
       <section style={{ padding: '5rem 0', background: '#ffffff', borderTop: '1px solid #e2e8f0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 PERFORMANCE UPGRADES

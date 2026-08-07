@@ -7,7 +7,7 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
       <div className="container">
 
         {/* ══ 1. TAPER & SHAFT CYLINDRICAL GRINDING ══════════════ */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '4rem', alignItems: 'center', marginBottom: '5rem' }}>
+        <div className="precision-grid-row">
 
           {/* Left Content */}
           <SlideInLeft>
@@ -67,7 +67,7 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
         <div style={{ width: '100%', height: '1px', background: '#e2e8f0', marginBottom: '5rem' }} />
 
         {/* ══ 2. SENSOR-BASED DYNAMIC BALANCING ══════════════════ */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '4rem', alignItems: 'center', marginBottom: '5rem' }}>
+        <div className="precision-grid-row reverse">
 
           {/* Left Image */}
           <ScaleUp>
@@ -120,7 +120,7 @@ export default function PrecisionCapabilitiesShowcase({ onNavigate }) {
         <div style={{ width: '100%', height: '1px', background: '#e2e8f0', marginBottom: '5rem' }} />
 
         {/* ══ 3. ISO CLASS 7 CLEANROOM STANDARDS ═════════════════ */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="precision-grid-row">
 
           {/* Left Content */}
           <SlideInLeft>

@@ -317,12 +317,12 @@ a:hover {
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 20px;
-  padding: 10px 16px;
+  padding: 6px 14px;
   box-shadow: 0 20px 48px -8px rgba(15, 23, 42, 0.15), 0 6px 16px -2px rgba(15, 23, 42, 0.06);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 100%;
+  max-width: 96vw;
 }
 
 .main-header-floating.scrolled .pill-navbar-container {
@@ -336,9 +336,9 @@ a:hover {
 }
 
 .pill-nav-item {
-  padding: 0.75rem 1.4rem;
+  padding: 0.5rem 0.85rem;
   font-family: var(--font-header);
-  font-size: 1.02rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #334155;
   cursor: pointer;
@@ -346,7 +346,7 @@ a:hover {
   transition: color 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   user-select: none;
   position: relative;
 }
@@ -355,8 +355,8 @@ a:hover {
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 1.1rem;
-  right: 1.1rem;
+  left: 0.85rem;
+  right: 0.85rem;
   height: 3px;
   background: linear-gradient(90deg, #1e3a8a, #2563eb);
   border-radius: 2px;
@@ -387,30 +387,32 @@ a:hover {
 
 .pill-logo-item {
   font-weight: 900;
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   color: #0f172a;
   letter-spacing: -0.01em;
   padding-left: 0.25rem;
-  padding-right: 1.25rem;
+  padding-right: 0.75rem;
   display: flex;
   align-items: center;
-  align-self: stretch;
+  align-self: center;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pill-logo-img {
-  height: 68px;
+  height: 52px;
   width: auto;
   object-fit: contain;
-  margin-top: -14px;
-  margin-bottom: -14px;
-  margin-left: -12px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  margin-top: -6px;
+  margin-bottom: -6px;
+  margin-left: -6px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
 .pill-divider {
   width: 1px;
-  height: 28px;
+  height: 22px;
   background: rgba(15, 23, 42, 0.14);
   margin: 0 4px;
   flex-shrink: 0;
@@ -419,20 +421,21 @@ a:hover {
 .pill-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   background: #1d4ed8;
   color: #ffffff;
   border: none;
-  border-radius: 14px;
-  padding: 0.7rem 0.75rem 0.7rem 1.5rem;
+  border-radius: 12px;
+  padding: 0.55rem 0.6rem 0.55rem 1.1rem;
   font-family: var(--font-header);
-  font-size: 1.02rem;
+  font-size: 0.88rem;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-left: 10px;
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.38);
+  margin-left: 6px;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pill-cta-btn:hover {
@@ -442,8 +445,8 @@ a:hover {
 }
 
 .pill-btn-arrow {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(15, 23, 42, 0.35);
   display: flex;
@@ -510,13 +513,108 @@ a:hover {
   color: var(--accent-primary);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .desktop-only {
     display: none !important;
   }
 
   .pill-hamburger {
     display: flex;
+  }
+}
+
+/* Active Hamburger Animation */
+.pill-hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.pill-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.pill-hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Compact Mobile Screen Optimization (< 640px) */
+@media (max-width: 640px) {
+  .main-header-floating {
+    top: 12px;
+    padding: 0 0.85rem;
+  }
+
+  .pill-navbar-container {
+    padding: 8px 14px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .pill-logo-item {
+    padding-right: 0;
+    margin-right: auto;
+    gap: 6px;
+  }
+
+  .pill-logo-title {
+    font-size: 0.88rem;
+    font-weight: 900;
+  }
+
+  .pill-logo-img {
+    height: 40px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .pill-cta-btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.78rem;
+    gap: 4px;
+    border-radius: 10px;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  .pill-btn-arrow {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pill-hamburger {
+    margin-left: 4px;
+    padding: 4px;
+  }
+
+  .mobile-pill-dropdown {
+    width: calc(100vw - 28px);
+    top: calc(100% + 8px);
+  }
+}
+
+/* Small Mobile Screens (< 420px) */
+@media (max-width: 420px) {
+  .pill-logo-title {
+    font-size: 0.8rem;
+  }
+
+  .pill-cta-btn span:first-child {
+    display: none;
+  }
+
+  .pill-cta-btn {
+    padding: 0.4rem;
+    border-radius: 50%;
+  }
+
+  .pill-btn-arrow {
+    width: 24px;
+    height: 24px;
+    background: transparent;
   }
 }
 
@@ -3137,14 +3235,7 @@ a:hover {
   }
 
   .hero-spindle-container {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: var(--space-md);
+    display: none !important;
   }
 
   .hero-spindle-image {
@@ -3176,23 +3267,129 @@ a:hover {
   }
 }
 
-/* Responsive Service Spotlight Cards */
+/* Responsive Service Spotlight Cards — Preserve Horizontal Side-by-Side Split on Mobile with Prominent Large 3D Images */
 @media (max-width: 992px) {
   .feature-card-split {
-    flex-direction: column !important;
-    height: auto !important;
-  }
-
-  .feature-card-right {
-    height: 200px !important;
-    width: 100% !important;
-    border-left: none !important;
-    border-top: none !important;
+    flex-direction: row !important;
+    display: flex !important;
+    min-height: 220px !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
   }
 
   .feature-card-left {
-    padding: var(--space-md) !important;
-    flex: none !important;
+    flex: 1 !important;
+    padding: 1.25rem 0.5rem 1.25rem 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .feature-card-right {
+    flex: 1.1 !important;
+    height: 100% !important;
+    min-height: 220px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .feature-title-split {
+    font-size: 1.18rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .feature-desc-split {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .nav-link-split {
+    font-size: 0.75rem !important;
+  }
+
+  .feature-badge {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .feature-img-split {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 240px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 12px 28px rgba(15, 23, 42, 0.16)) !important;
+  }
+
+  .feature-img-split.scale-card-01 {
+    --scale: 2.10 !important;
+    --shift-x: 30px !important;
+    --shift-y: 0px !important;
+    transform: translate(30px, 0) scale(2.10) !important;
+  }
+
+  .feature-img-split.scale-card-02 {
+    --scale: 1.15 !important;
+    --shift-x: 0px !important;
+    --shift-y: 0px !important;
+    transform: translate(0, 0) scale(1.15) !important;
+  }
+
+  .feature-img-split.scale-card-03 {
+    --scale: 1.10 !important;
+    --shift-x: 0px !important;
+    --shift-y: 0px !important;
+    transform: translate(0, 0) scale(1.10) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* WHY CHOOSE US SECTION MOBILE RESPONSIVE STICKY STACK FIX   */
+/* ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  #why-choose-us {
+    padding-top: 1rem !important;
+  }
+
+  .why-sticky-stack-list {
+    gap: 3.5rem !important;
+  }
+
+  .why-sticky-stack-list>div {
+    grid-template-columns: 1fr !important;
+    position: sticky !important;
+    margin-bottom: 3.5rem !important;
+    box-shadow: 0 16px 44px -8px rgba(15, 23, 42, 0.16) !important;
+  }
+
+  .why-sticky-stack-list>div>div:first-child {
+    order: 2 !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-top: 1px solid #e2e8f0 !important;
+    min-height: 180px !important;
+    padding: 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .why-sticky-stack-list>div>div:last-child {
+    order: 1 !important;
+    padding: 1.5rem !important;
+  }
+
+  .why-sticky-stack-list img {
+    max-height: 160px !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
   }
 }
 
@@ -3457,28 +3654,36 @@ a:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .taper-section {
+    padding-top: 2rem !important;
+  }
+
   .taper-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding-top: 3rem;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2.5rem !important;
   }
 
-  .taper-features {
-    grid-template-columns: repeat(2, 1fr);
+  .taper-left {
+    width: 100% !important;
   }
 
-  .taper-feat:nth-child(2) {
-    border-right: none;
-  }
-
-  .taper-feat:nth-child(3),
-  .taper-feat:nth-child(4) {
-    border-top: 1px solid var(--border-color);
+  .taper-right {
+    width: 100% !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
   }
 
   .taper-img {
-    height: 280px;
+    height: 300px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .taper-features {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .taper-stats-grid {
@@ -3495,7 +3700,140 @@ a:hover {
   }
 }
 
-/* ─── Why Choose GPS Spindles — Premium Alternating Layout ─── */
+/* ─── Precision Capabilities Showcase Responsiveness ─── */
+.precision-grid-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.precision-grid-row.reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+@media (max-width: 992px) {
+  #precision-capabilities {
+    padding-top: 2rem !important;
+  }
+
+  .precision-grid-row,
+  .precision-grid-row.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    margin-bottom: 3.5rem !important;
+  }
+}
+
+/* ─── Founders Showcase Banner Responsiveness ─── */
+.founders-banner-card {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(320px, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 3.5rem 3rem;
+}
+
+.founders-portraits-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100% + 7rem);
+  margin-top: -3.5rem;
+  margin-bottom: -3.5rem;
+  margin-right: -1.5rem;
+}
+
+@media (max-width: 992px) {
+  .founders-banner-card {
+    grid-template-columns: 1fr !important;
+    padding: 2.25rem 1.25rem !important;
+    gap: 2rem !important;
+  }
+
+  .founders-portraits-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .founders-portraits-wrapper>div {
+    min-height: 260px !important;
+    border-radius: 16px !important;
+  }
+
+  .founders-banner-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem 1rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .founders-banner-metrics>div {
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* ─── Machin Footer Responsiveness ─── */
+.machin-footer-card {
+  position: relative;
+  background: #1d4ed8;
+  border-radius: 24px;
+  color: #ffffff;
+  padding: 3rem 3rem 2rem 3rem;
+  max-width: 1380px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -10px rgba(29, 78, 216, 0.35);
+}
+
+.machin-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 1.4fr) minmax(280px, 1.1fr);
+  gap: 2.5rem;
+}
+
+.footer-col-headline {
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.footer-links-grid {
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .machin-footer-card {
+    padding: 2rem 1.25rem 1.5rem 1.25rem !important;
+    border-radius: 20px !important;
+  }
+
+  .machin-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.25rem !important;
+  }
+
+  .footer-col-headline,
+  .footer-links-grid {
+    padding-right: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
 .why-pro-section {
   background: #ffffff;
   padding: 5rem 0 0 0;
@@ -6947,20 +7285,71 @@ svg {
 }
 
 @media (max-width: 900px) {
+  .promo-banner-container {
+    margin: 2rem auto !important;
+  }
+
   .promo-banner-card {
-    flex-direction: column;
+    flex-direction: column !important;
+    border-radius: 20px !important;
   }
 
   .promo-banner-left {
-    min-height: 260px;
+    min-height: 200px !important;
+    height: 200px !important;
   }
 
   .promo-banner-right {
-    padding: 2rem 1.75rem;
+    padding: 1.75rem 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .promo-banner-sub-tag {
+    font-size: 0.72rem !important;
+    padding: 3px 10px !important;
+    margin: 0 auto 0.5rem auto !important;
   }
 
   .promo-banner-title {
-    font-size: 2.2rem;
+    font-size: 2.75rem !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    margin: 0 auto 1.25rem auto !important;
+    letter-spacing: -0.035em !important;
+    text-align: center !important;
+  }
+
+  .promo-banner-btn {
+    padding: 0.75rem 1.5rem !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ─── Testimonials Section Mobile Responsiveness ─── */
+@media (max-width: 900px) {
+  #testimonials-machin-section {
+    padding: 3.5rem 0 !important;
+  }
+
+  .testimonials-header-col {
+    min-height: auto !important;
+    gap: 1rem !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .testimonials-arrows-wrap {
+    margin-top: 0 !important;
+  }
+
+  .testimonials-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
 }
 
@@ -7438,4 +7827,87 @@ svg {
 
 .stagger-child:nth-child(6) {
   transition-delay: 0.58s;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* MACHIN 2-COLUMN SECTION HEADERS                             */
+/* ═══════════════════════════════════════════════════════════ */
+.machin-2col-header {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 900px) {
+  .machin-2col-header {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Tablet & Medium Screens (< 1024px) */
+@media (max-width: 1024px) {
+
+  div[style*="gridTemplateColumns: '1.2fr 1fr'"],
+  div[style*="gridTemplateColumns: '1.1fr 1fr'"],
+  div[style*="gridTemplateColumns: '260px 1fr'"],
+  div[style*="gridTemplateColumns: 'repeat(3, 1fr)'"],
+  div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"],
+  div[style*="gridTemplateColumns: '1fr 1fr'"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem !important;
+  }
+
+  h1 {
+    font-size: 2.15rem !important;
+    line-height: 1.22 !important;
+  }
+
+  h2 {
+    font-size: 1.65rem !important;
+    line-height: 1.28 !important;
+  }
+
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  div[style*="flexWrap: 'wrap'"] {
+    gap: 8px !important;
+  }
+
+  footer div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Small Mobile Screens (< 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.85rem !important;
+  }
+
+  h2 {
+    font-size: 1.45rem !important;
+  }
+
+  button {
+    max-width: 100%;
+  }
 }

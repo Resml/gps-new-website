@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SlideInLeft, SlideInRight, ScaleUp, FadeUp } from '../components/MotionWrapper';
 import PromoBannerCard from '../components/PromoBannerCard';
 
 export default function Products({ onNavigate }) {
@@ -169,328 +170,452 @@ export default function Products({ onNavigate }) {
   const comparedProductsData = productsList.filter(p => compareList.includes(p.id));
 
   return (
-    <div className="page-fade-enter-active">
+    <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
 
-      {/* ══ HERO HEADER ════════════════════════════════════════ */}
-      <section className="sub-hero">
-        <div className="hero-blueprint-watermark"></div>
-        <div className="container sub-hero-content">
-          <div className="breadcrumbs">
-            <span>Home</span>
-            <span>/</span>
-            <span className="current">Spindle Product Catalog</span>
-          </div>
+      {/* ══ HERO SECTION ══════════════════════════════════════ */}
+      <section style={{ padding: '0.5rem 0 3.5rem 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                SPINDLE PRODUCT CATALOG
+              </div>
+              <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.18', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em' }}>
+                Precision Engineered <span style={{ color: '#1d4ed8' }}>Spindle Units</span>
+              </h1>
+              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: '0 0 2rem 0', maxWidth: '600px' }}>
+                Explore our line of high-speed motorized integrated, mechanical belt-driven, gear transmission, and high-frequency grinding spindle units — custom manufactured and rebuilt to sub-micron standards.
+              </p>
 
-          <div className="label-tag-enhanced" style={{ marginTop: '0.5rem', marginBottom: '0.75rem' }}>
-            <span className="dot"></span>
-            PRO MAX DESIGNED PRODUCT CATALOG
-          </div>
-
-          <h1 style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '0.5rem' }}>
-            Precision Engineered <span className="gradient-text">Spindle Units</span>
-          </h1>
-          <p style={{ maxWidth: '680px', fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
-            Explore our line of high-speed motorized integrated, mechanical belt-driven, gear transmission, and high-frequency grinding spindle units — custom manufactured and rebuilt to sub-micron standards.
-          </p>
-
-          {/* Quick Metrics Bar */}
-          <div className="proc-hero-badges" style={{ marginTop: '1.75rem' }}>
-            <div className="proc-badge">
-              <span className="proc-badge-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </span>
-              <span className="proc-badge-val">Up to 60k RPM</span>
-              <span className="proc-badge-sub">High Velocity</span>
+              {/* 3 Metric Badges Row */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.5rem' }}>
+                <div>
+                  <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>60,000 RPM</span>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Max Velocity</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>&lt; 0.0005mm</span>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Sub-Micron TIR</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>12 Months</span>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Full Warranty</span>
+                </div>
+              </div>
             </div>
-            <div className="proc-badge">
-              <span className="proc-badge-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="6"></circle>
-                  <circle cx="12" cy="12" r="2"></circle>
-                </svg>
-              </span>
-              <span className="proc-badge-val">&lt; 0.0005mm</span>
-              <span className="proc-badge-sub">Sub-Micron Runout</span>
-            </div>
-            <div className="proc-badge">
-              <span className="proc-badge-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-              </span>
-              <span className="proc-badge-val">12-Month</span>
-              <span className="proc-badge-sub">Full Warranty</span>
-            </div>
-            <div className="proc-badge">
-              <span className="proc-badge-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-              </span>
-              <span className="proc-badge-val">100% SOP Tested</span>
-              <span className="proc-badge-sub">Cleanroom Logged</span>
+
+            {/* Right Card Panel — Signature Royal Blue Brand Container */}
+            <div style={{ background: '#1d4ed8', borderRadius: '24px', padding: '2.5rem', color: '#ffffff', boxShadow: '0 20px 50px -10px rgba(29, 78, 216, 0.35)', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+                CUSTOM SPINDLE MANUFACTURING
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.75rem' }}>
+                <div>
+                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>HSK / BT</span>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Supported Interfaces</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>1,200 Nm</span>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Max Torque Output</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>ISO G0.4</span>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Dynamic Balancing</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>100%</span>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>SOP Cleanroom Tested</span>
+                </div>
+              </div>
+              <button
+                onClick={() => onNavigate('contact')}
+                style={{
+                  width: '100%',
+                  marginTop: '2rem',
+                  background: '#ffffff',
+                  color: '#1d4ed8',
+                  border: 'none',
+                  borderRadius: '12px',
+                  padding: '0.85rem 1.5rem',
+                  fontWeight: 900,
+                  fontSize: '0.92rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justify: 'center',
+                  gap: '8px',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.15)'
+                }}
+              >
+                <span>REQUEST CUSTOM SPINDLE QUOTE</span>
+                <span>&rarr;</span>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══ CATALOG CONTROLS & FILTER ══════════════════════════ */}
-      <section className="section container">
-        <div className="filter-bar-enhanced">
-          {/* Category Filter Pills */}
-          <div className="filter-pills">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => setFilter(cat.key)}
-                className={`filter-pill-btn ${filter === cat.key ? 'active' : ''}`}
-              >
-                {cat.label}
-                <span className="filter-count-badge">{cat.count}</span>
-              </button>
-            ))}
+      <section style={{ padding: '4rem 0' }}>
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+            {/* Category Filter Pills */}
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {categories.map((cat) => (
+                <button
+                  key={cat.key}
+                  onClick={() => setFilter(cat.key)}
+                  style={{
+                    padding: '0.65rem 1.3rem',
+                    borderRadius: '12px',
+                    border: filter === cat.key ? '2px solid #1d4ed8' : '1px solid #cbd5e1',
+                    background: filter === cat.key ? '#1d4ed8' : '#ffffff',
+                    color: filter === cat.key ? '#ffffff' : '#334155',
+                    fontWeight: 800,
+                    fontSize: '0.88rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    boxShadow: filter === cat.key ? '0 4px 14px rgba(29,78,216,0.3)' : '0 2px 6px rgba(15,23,42,0.04)'
+                  }}
+                >
+                  <span>{cat.label}</span>
+                  <span style={{ background: filter === cat.key ? 'rgba(255,255,255,0.25)' : '#f1f5f9', color: filter === cat.key ? '#ffffff' : '#64748b', padding: '2px 7px', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 800 }}>
+                    {cat.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Search Input & View Switcher */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ position: 'relative', minWidth: '240px' }}>
+                <input
+                  type="text"
+                  placeholder="Search model (e.g. GPS-M12)..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '0.65rem 1rem 0.65rem 2.4rem',
+                    borderRadius: '10px',
+                    border: '1px solid #cbd5e1',
+                    fontSize: '0.88rem',
+                    fontWeight: 600,
+                    outline: 'none',
+                    background: '#ffffff'
+                  }}
+                />
+                <svg width="16" height="16" fill="none" stroke="#64748b" viewBox="0 0 24 24" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+
+              {/* Grid vs Matrix Toggle */}
+              <div style={{ display: 'flex', background: '#f1f5f9', padding: '3px', borderRadius: '10px', border: '1px solid #cbd5e1' }}>
+                <button
+                  onClick={() => setViewMode('grid')}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: '8px',
+                    border: 'none',
+                    background: viewMode === 'grid' ? '#ffffff' : 'transparent',
+                    color: viewMode === 'grid' ? '#1d4ed8' : '#64748b',
+                    fontWeight: 800,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    boxShadow: viewMode === 'grid' ? '0 2px 6px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  Grid Cards
+                </button>
+                <button
+                  onClick={() => setViewMode('matrix')}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: '8px',
+                    border: 'none',
+                    background: viewMode === 'matrix' ? '#ffffff' : 'transparent',
+                    color: viewMode === 'matrix' ? '#1d4ed8' : '#64748b',
+                    fontWeight: 800,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    boxShadow: viewMode === 'matrix' ? '0 2px 6px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  Spec Matrix
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Search Box & View Mode Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-            {/* Search Input */}
-            <div style={{ position: 'relative', minWidth: '220px' }}>
-              <input
-                type="text"
-                placeholder="Search model (e.g. GPS-M12)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '0.55rem 1rem 0.55rem 2.2rem',
-                  fontSize: '0.85rem',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border-color)',
-                  background: 'var(--bg-secondary)',
-                  color: 'var(--text-primary)',
-                  outline: 'none'
-                }}
-              />
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
-
-            {/* Layout Switcher Buttons */}
-            <div className="pro-view-switcher">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`pro-view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                title="Grid Cards View"
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                Grid
-              </button>
-              <button
-                onClick={() => setViewMode('matrix')}
-                className={`pro-view-btn ${viewMode === 'matrix' ? 'active' : ''}`}
-                title="Engineering Spec Matrix View"
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-                Matrix
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* ══ VIEW MODE 1: GRID CARDS VIEW ══════════════════════ */}
-        {viewMode === 'grid' && (
-          filteredProducts.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '4rem 2rem', background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-              <h3 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>No Spindle Models Found</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Try selecting another category filter or search keyword.</p>
-              <button onClick={() => { setFilter('all'); setSearchQuery(''); }} className="btn btn-secondary" style={{ marginTop: '1rem' }}>
-                Reset Filters
-              </button>
-            </div>
-          ) : (
-            <div className="catalog-grid">
-              {filteredProducts.map((product) => {
-                const isCompared = compareList.includes(product.id);
-                return (
-                  <div key={product.id} className="product-card-enhanced">
-                    {/* Badges */}
-                    <div className="product-tag-pill">{product.badge}</div>
-                    <div className="product-id-badge">{product.id}</div>
-
-                    {/* Image Viewport with Radial Halo */}
-                    <div className="product-img-wrapper-enhanced">
-                      <img src={product.img} alt={product.title} />
-                    </div>
-
-                    {/* Info Body */}
-                    <div className="product-info-wrapper-enhanced">
-                      <h3 className="product-title-enhanced">{product.title}</h3>
-                      <p className="product-desc-enhanced">{product.desc}</p>
-
-                      {/* Micro Specs Grid */}
-                      <div className="product-spec-grid-enhanced">
-                        {product.specs.map((spec, sIdx) => (
-                          <div key={sIdx} className="product-spec-row">
-                            <span className="product-spec-label-enhanced">{spec.label}</span>
-                            <span className="product-spec-val-enhanced">{spec.val}</span>
+          {/* ══ GRID CARDS VIEW ══════════════════════════════════ */}
+          {viewMode === 'grid' && (
+            filteredProducts.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '4rem 2rem', background: '#ffffff', borderRadius: '16px', border: '1px solid #cbd5e1' }}>
+                <h3 style={{ color: '#0f172a', marginBottom: '0.5rem' }}>No Spindle Models Found</h3>
+                <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Try selecting another category filter or search keyword.</p>
+                <button onClick={() => { setFilter('all'); setSearchQuery(''); }} style={{ marginTop: '1rem', background: '#1d4ed8', color: '#ffffff', border: 'none', padding: '0.6rem 1.4rem', borderRadius: '8px', fontWeight: 800, cursor: 'pointer' }}>
+                  Reset Filters
+                </button>
+              </div>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                {filteredProducts.map((product, idx) => {
+                  const isCompared = compareList.includes(product.id);
+                  return (
+                    <ScaleUp key={product.id} delay={idx * 0.1}>
+                      <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                        <div>
+                          {/* Image Viewport */}
+                          <div style={{ background: '#f8fafc', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', position: 'relative', borderBottom: '1px solid #e2e8f0' }}>
+                            <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', maxHeight: '190px', objectFit: 'contain', filter: 'drop-shadow(0 10px 24px rgba(15,23,42,0.12))' }} />
+                            <div style={{ position: 'absolute', top: '16px', left: '16px', background: '#1d4ed8', color: '#ffffff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase' }}>
+                              {product.badge}
+                            </div>
+                            <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(15,23,42,0.85)', color: '#ffffff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 900 }}>
+                              {product.id}
+                            </div>
                           </div>
-                        ))}
-                      </div>
 
-                      {/* Compare Checkbox Row */}
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem', padding: '0 2px' }}>
-                        <label style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', color: 'var(--text-secondary)', cursor: 'pointer', fontWeight: 600 }}>
-                          <input
-                            type="checkbox"
-                            checked={isCompared}
-                            onChange={() => toggleCompare(product.id)}
-                            style={{ cursor: 'pointer', accentColor: 'var(--accent-primary)' }}
-                          />
-                          Compare Specs
-                        </label>
-                        <span style={{ fontSize: '0.72rem', color: 'var(--accent-primary)', fontWeight: 700 }}>
-                          SOP LOGGED
-                        </span>
-                      </div>
+                          {/* Info Body */}
+                          <div style={{ padding: '1.75rem' }}>
+                            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.3', marginBottom: '0.65rem' }}>{product.title}</h3>
+                            <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>{product.desc}</p>
 
-                      {/* Action Buttons */}
-                      <div className="product-card-actions-enhanced">
-                        <button
-                          onClick={() => onNavigate('contact', product.id)}
-                          className="btn btn-primary"
-                          style={{ flex: 1.2, padding: '0.65rem 0.75rem', fontSize: '0.82rem' }}
-                        >
-                          Inquire Model &nbsp;&rarr;
-                        </button>
-                        <button
-                          onClick={() => setSelectedProduct(product)}
-                          className="btn btn-secondary"
-                          style={{ flex: 0.8, padding: '0.65rem 0.5rem', fontSize: '0.82rem' }}
-                        >
-                          Full Specs
-                        </button>
+                            {/* Specs Grid */}
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', borderTop: '1px solid #e2e8f0', paddingTop: '1rem', marginBottom: '1.25rem' }}>
+                              {product.specs.map((spec, sIdx) => (
+                                <div key={sIdx}>
+                                  <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, display: 'block', textTransform: 'uppercase' }}>{spec.label}</span>
+                                  <span style={{ fontSize: '0.88rem', color: '#1d4ed8', fontWeight: 800, display: 'block', marginTop: '2px' }}>{spec.val}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Card Actions Footer */}
+                        <div style={{ padding: '0 1.75rem 1.75rem 1.75rem' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                            <label style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: '#334155', cursor: 'pointer', fontWeight: 700 }}>
+                              <input
+                                type="checkbox"
+                                checked={isCompared}
+                                onChange={() => toggleCompare(product.id)}
+                                style={{ cursor: 'pointer', accentColor: '#1d4ed8' }}
+                              />
+                              Compare Specs
+                            </label>
+                            <span style={{ fontSize: '0.72rem', color: '#16a34a', fontWeight: 900 }}>✓ SOP TESTED</span>
+                          </div>
+
+                          <div style={{ display: 'flex', gap: '10px' }}>
+                            <button
+                              onClick={() => onNavigate('contact', product.id)}
+                              style={{ flex: 1.2, background: '#1d4ed8', color: '#ffffff', border: 'none', borderRadius: '10px', padding: '0.75rem', fontWeight: 800, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                            >
+                              <span>INQUIRE MODEL</span>
+                              <span>&rarr;</span>
+                            </button>
+                            <button
+                              onClick={() => setSelectedProduct(product)}
+                              style={{ flex: 0.8, background: '#f1f5f9', color: '#0f172a', border: '1px solid #cbd5e1', borderRadius: '10px', padding: '0.75rem', fontWeight: 800, fontSize: '0.85rem', cursor: 'pointer' }}
+                            >
+                              FULL SPECS
+                            </button>
+                          </div>
+                        </div>
                       </div>
+                    </ScaleUp>
+                  );
+                })}
+              </div>
+            )
+          )}
+
+          {/* ══ MATRIX TABLE VIEW ════════════════════════════════ */}
+          {viewMode === 'matrix' && (
+            <div style={{ borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '80px 140px 1.5fr 1fr 1fr 1fr 1.2fr', background: '#1d4ed8', color: '#ffffff', padding: '1.25rem 1.5rem', fontWeight: 800, fontSize: '0.85rem' }}>
+                <div>COMPARE</div>
+                <div>MODEL ID</div>
+                <div>SPINDLE ARCHITECTURE</div>
+                <div>MAX SPEED</div>
+                <div>TOOL INTERFACE</div>
+                <div>POWER / TORQUE</div>
+                <div>ACTIONS</div>
+              </div>
+
+              {filteredProducts.map((product, idx) => {
+                const maxSpeed = product.specs.find(s => s.label.includes('Speed'))?.val || '—';
+                const toolIf = product.specs.find(s => s.label.includes('Tool'))?.val || '—';
+                const powerOrTorque = product.specs.find(s => s.label.includes('Power') || s.label.includes('Torque'))?.val || '—';
+                const isCompared = compareList.includes(product.id);
+
+                return (
+                  <div
+                    key={product.id}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '80px 140px 1.5fr 1fr 1fr 1fr 1.2fr',
+                      padding: '1.25rem 1.5rem',
+                      alignItems: 'center',
+                      background: idx % 2 === 0 ? '#ffffff' : '#f8fafc',
+                      borderBottom: idx === filteredProducts.length - 1 ? 'none' : '1px solid #e2e8f0',
+                      fontSize: '0.9rem',
+                      fontWeight: 600
+                    }}
+                  >
+                    <div>
+                      <input
+                        type="checkbox"
+                        checked={isCompared}
+                        onChange={() => toggleCompare(product.id)}
+                        style={{ cursor: 'pointer', accentColor: '#1d4ed8' }}
+                      />
+                    </div>
+                    <div style={{ fontWeight: 900, color: '#1d4ed8' }}>{product.id}</div>
+                    <div>
+                      <div style={{ fontWeight: 800, color: '#0f172a' }}>{product.title}</div>
+                      <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700 }}>{product.badge}</span>
+                    </div>
+                    <div style={{ fontWeight: 800, color: '#0f172a' }}>{maxSpeed}</div>
+                    <div style={{ color: '#334155' }}>{toolIf}</div>
+                    <div style={{ fontWeight: 800, color: '#1d4ed8' }}>{powerOrTorque}</div>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        onClick={() => setSelectedProduct(product)}
+                        style={{ background: '#f1f5f9', color: '#0f172a', border: '1px solid #cbd5e1', borderRadius: '8px', padding: '0.45rem 0.75rem', fontSize: '0.78rem', fontWeight: 800, cursor: 'pointer' }}
+                      >
+                        SPECS
+                      </button>
+                      <button
+                        onClick={() => onNavigate('contact', product.id)}
+                        style={{ background: '#1d4ed8', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', fontWeight: 800, cursor: 'pointer' }}
+                      >
+                        INQUIRE &rarr;
+                      </button>
                     </div>
                   </div>
                 );
               })}
             </div>
-          )
-        )}
+          )}
+        </div>
+      </section>
 
-        {/* ══ VIEW MODE 2: MATRIX TABLE VIEW ════════════════════ */}
-        {viewMode === 'matrix' && (
-          <div className="pro-matrix-table-wrap">
-            <table className="pro-matrix-table">
-              <thead>
-                <tr>
-                  <th>Compare</th>
-                  <th>Model ID</th>
-                  <th>Spindle Architecture</th>
-                  <th>Max Speed</th>
-                  <th>Tool Interface</th>
-                  <th>Power / Torque</th>
-                  <th>Runout Tolerance</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredProducts.map((product) => {
-                  const maxSpeed = product.specs.find(s => s.label.includes('Speed'))?.val || '—';
-                  const toolIf = product.specs.find(s => s.label.includes('Tool'))?.val || '—';
-                  const powerOrTorque = product.specs.find(s => s.label.includes('Power') || s.label.includes('Torque'))?.val || '—';
-                  const runout = product.specs.find(s => s.label.includes('Runout') || s.label.includes('Bearing'))?.val || '< 0.001mm';
-                  const isCompared = compareList.includes(product.id);
-
-                  return (
-                    <tr key={product.id}>
-                      <td>
-                        <input
-                          type="checkbox"
-                          checked={isCompared}
-                          onChange={() => toggleCompare(product.id)}
-                          style={{ cursor: 'pointer', accentColor: 'var(--accent-primary)' }}
-                        />
-                      </td>
-                      <td style={{ fontWeight: 800, color: 'var(--accent-primary)', fontFamily: 'var(--font-header)' }}>
-                        {product.id}
-                      </td>
-                      <td>
-                        <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{product.title}</div>
-                        <span className="label-tag-enhanced" style={{ fontSize: '0.65rem', padding: '2px 6px' }}>{product.badge}</span>
-                      </td>
-                      <td style={{ fontWeight: 700 }}>{maxSpeed}</td>
-                      <td>{toolIf}</td>
-                      <td>{powerOrTorque}</td>
-                      <td style={{ color: '#16a34a', fontWeight: 700 }}>{runout}</td>
-                      <td>
-                        <div style={{ display: 'flex', gap: '6px' }}>
-                          <button
-                            onClick={() => setSelectedProduct(product)}
-                            className="btn btn-secondary"
-                            style={{ padding: '0.4rem 0.65rem', fontSize: '0.75rem' }}
-                          >
-                            Specs
-                          </button>
-                          <button
-                            onClick={() => onNavigate('contact', product.id)}
-                            className="btn btn-primary"
-                            style={{ padding: '0.4rem 0.75rem', fontSize: '0.75rem' }}
-                          >
-                            Inquire &rarr;
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+      {/* ══ ENGINEERING SELECTION GUIDE ══════════════════════ */}
+      <section style={{ padding: '5rem 0', background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div className="machin-2col-header">
+            <SlideInLeft>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                SELECTION GUIDE
+              </span>
+            </SlideInLeft>
+            <SlideInRight>
+              <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
+                Integrated Motorized <span style={{ color: '#1d4ed8' }}>vs. Belt-Driven Architecture</span>
+              </h2>
+              <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
+                Choosing the right spindle architecture is critical for balancing torque, maximum RPM, thermal stability, and maintenance overhead.
+              </p>
+            </SlideInRight>
           </div>
-        )}
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            {/* Card 1: Motorized */}
+            <ScaleUp delay={0.1}>
+              <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', padding: '2.5rem', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '4px 10px', borderRadius: '6px', textTransform: 'uppercase' }}>
+                      HIGH-VELOCITY FINISHING
+                    </span>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 900, color: '#1d4ed8' }}>UP TO 100,000 RPM</span>
+                  </div>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.85rem' }}>
+                    Integrated Motorized Configurations
+                  </h3>
+                  <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: '1.65', marginBottom: '1.5rem' }}>
+                    Integrated motorized configurations seat the rotor directly on the spindle shaft. This layout isolates belt side-load deflection, permits higher angular velocities up to 100,000 RPM, and is ideal for high-speed finishing operations with liquid cooling.
+                  </p>
+                </div>
+
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>Zero belt side-load deflection for sub-micron surface finish</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>Closed-loop liquid stator jacket prevents thermal expansion</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600 }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>High-speed vector encoder for rigid tapping &amp; orientation</span>
+                  </li>
+                </ul>
+              </div>
+            </ScaleUp>
+
+            {/* Card 2: Belt-Driven */}
+            <ScaleUp delay={0.2}>
+              <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', padding: '2.5rem', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '4px 10px', borderRadius: '6px', textTransform: 'uppercase' }}>
+                      HEAVY TORQUE MILLING
+                    </span>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 900, color: '#1d4ed8' }}>UP TO 1,200 NM TORQUE</span>
+                  </div>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.85rem' }}>
+                    Belt-Driven Mechanical Configurations
+                  </h3>
+                  <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: '1.65', marginBottom: '1.5rem' }}>
+                    Belt-driven designs transfer mechanical power from an external motor via coupled pulleys. This design is highly service-accessible and delivers cost-effective, high-torque output under heavy material removal limits.
+                  </p>
+                </div>
+
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>Exceptional low-RPM torque for heavy metal cutting</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>Simple motor replacement without breaking cleanroom seal</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600 }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>Economical rebuild &amp; maintenance cost structure</span>
+                  </li>
+                </ul>
+              </div>
+            </ScaleUp>
+          </div>
+        </div>
       </section>
 
       {/* ══ FLOATING COMPARE TRAY ══════════════════════════════ */}
       {compareList.length > 0 && (
-        <div className="compare-floating-tray">
-          <div className="compare-tray-text">
-            <span className="compare-badge-pill">{compareList.length}</span>
-            Models Selected for Side-by-Side Comparison
+        <div style={{ position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)', background: '#0f172a', color: '#ffffff', padding: '0.75rem 1.5rem', borderRadius: '99px', boxShadow: '0 16px 40px rgba(15,23,42,0.4)', display: 'flex', alignItems: 'center', gap: '1.5rem', zIndex: 900, border: '1px solid rgba(255,255,255,0.2)' }}>
+          <div style={{ fontSize: '0.88rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ background: '#1d4ed8', color: '#ffffff', width: '24px', height: '24px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.8rem' }}>{compareList.length}</span>
+            <span>Models Selected for Side-by-Side Comparison</span>
           </div>
-          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <button
               onClick={() => setShowCompareModal(true)}
-              className="btn btn-primary"
-              style={{ padding: '0.45rem 1.1rem', fontSize: '0.82rem', borderRadius: '99px' }}
+              style={{ background: '#1d4ed8', color: '#ffffff', border: 'none', borderRadius: '99px', padding: '0.5rem 1.25rem', fontWeight: 800, fontSize: '0.82rem', cursor: 'pointer' }}
             >
-              Compare Matrix Side-by-Side &rarr;
+              Compare Matrix &rarr;
             </button>
             <button
               onClick={() => setCompareList([])}
-              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.7)', cursor: 'pointer', fontSize: '0.8rem', padding: '0.4rem' }}
+              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.7)', cursor: 'pointer', fontSize: '0.8rem' }}
             >
               Clear
             </button>
@@ -498,155 +623,46 @@ export default function Products({ onNavigate }) {
         </div>
       )}
 
-      {/* ══ HIGH-IMPACT PROMO BANNER ═══════════════════════════ */}
-      <PromoBannerCard onNavigate={onNavigate} />
-
-      {/* ══ ARCHITECTURE SELECTION GUIDE ══════════════════════ */}
-      <section className="section alt-bg">
-        <div className="container">
-          <div className="section-header-enhanced">
-            <div className="label-tag-wrapper">
-              <span className="label-tag-enhanced">
-                <span className="dot"></span>
-                Engineering Selection Guide
-              </span>
-            </div>
-            <h2 className="section-title-enhanced">
-              Integrated Motorized <span className="gradient-text">vs. Belt-Driven Interfaces</span>
-            </h2>
-            <div className="title-divider-enhanced"></div>
-            <p className="section-desc-enhanced">
-              Choosing the right spindle architecture is critical for balancing torque, maximum RPM, thermal stability, and long-term maintenance overhead.
-            </p>
-          </div>
-
-          <div className="grid-2" style={{ gap: '2rem' }}>
-            {/* Card 1: Integrated */}
-            <div className="b2b-card" style={{ backgroundColor: '#ffffff', padding: '2.25rem', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                <span className="label-tag-enhanced" style={{ fontSize: '0.72rem' }}>High-Velocity Finishing</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--accent-primary)' }}>UP TO 100,000 RPM</span>
-              </div>
-              <h3 style={{ color: 'var(--text-primary)', marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>
-                Integrated Motorized Configurations
-              </h3>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-                Integrated motorized configurations seat the rotor directly on the spindle shaft. This layout completely isolates dynamic belt side-load tension forces, permits higher angular velocities (up to 100,000 RPM), and is ideal for high-speed finishing operations. Heat from the motor is regulated using liquid cooling loops.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.84rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  Zero belt side-load deflection for sub-micron surface finish
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  Closed-loop liquid stator jacket prevents thermal growth
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  High-speed vector encoder for rigid tapping &amp; orientation
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 2: Belt-Driven */}
-            <div className="b2b-card" style={{ backgroundColor: '#ffffff', padding: '2.25rem', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                <span className="label-tag-enhanced" style={{ fontSize: '0.72rem' }}>Heavy Torque Milling</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--accent-primary)' }}>UP TO 1,200 NM TORQUE</span>
-              </div>
-              <h3 style={{ color: 'var(--text-primary)', marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>
-                Belt-Driven Mechanical Configurations
-              </h3>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-                Belt-driven designs transfer mechanical power from an external motor via coupled pulleys. This design is highly service-accessible and delivers cost-effective, high-torque output under low and medium velocity limits. Pulley designs isolate thermal displacement, but side-load belt strain limits high-speed precision.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.84rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  Exceptional low-RPM torque for heavy material removal
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  Simple motor replacement without opening cleanroom seal
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  Economical rebuild &amp; maintenance cost structure
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ SIDE-BY-SIDE COMPARISON MODAL ══════════════════════ */}
+      {/* ══ COMPARE MODAL ═════════════════════════════════════ */}
       {showCompareModal && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(10, 18, 32, 0.8)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-            padding: '1.5rem'
-          }}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.8)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1.5rem' }}
           onClick={() => setShowCompareModal(false)}
         >
           <div
-            style={{
-              background: '#ffffff',
-              borderRadius: 'var(--radius-md)',
-              maxWidth: '900px',
-              width: '100%',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.3)',
-              border: '1px solid var(--border-color)'
-            }}
+            style={{ background: '#ffffff', borderRadius: '24px', maxWidth: '900px', width: '100%', overflow: 'hidden', boxShadow: '0 25px 50px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1' }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ background: 'var(--bg-secondary)', padding: '1.25rem 1.5rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: '#1d4ed8', padding: '1.25rem 1.75rem', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <span className="label-tag-enhanced" style={{ fontSize: '0.7rem' }}>Side-by-Side Matrix</span>
-                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 800, marginTop: '2px' }}>Technical Model Comparison</h3>
+                <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#93c5fd', textTransform: 'uppercase' }}>SIDE-BY-SIDE MATRIX</span>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, margin: '2px 0 0 0' }}>Technical Model Comparison</h3>
               </div>
-              <button
-                onClick={() => setShowCompareModal(false)}
-                style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--text-muted)' }}
-              >
-                ✕
-              </button>
+              <button onClick={() => setShowCompareModal(false)} style={{ background: 'none', border: 'none', color: '#ffffff', fontSize: '1.5rem', cursor: 'pointer' }}>✕</button>
             </div>
 
-            <div style={{ padding: '1.5rem', maxHeight: '75vh', overflowY: 'auto' }}>
+            <div style={{ padding: '1.75rem', maxHeight: '70vh', overflowY: 'auto' }}>
               <div style={{ display: 'grid', gridTemplateColumns: `repeat(${comparedProductsData.length}, 1fr)`, gap: '1.5rem' }}>
                 {comparedProductsData.map((p) => (
-                  <div key={p.id} style={{ background: 'var(--bg-secondary)', padding: '1.25rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                    <div style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', background: '#ffffff', borderRadius: '6px', padding: '0.5rem' }}>
+                  <div key={p.id} style={{ background: '#f8fafc', padding: '1.25rem', borderRadius: '16px', border: '1px solid #cbd5e1' }}>
+                    <div style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', background: '#ffffff', borderRadius: '12px', padding: '0.5rem' }}>
                       <img src={p.img} alt={p.title} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
                     </div>
-                    <div style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-primary)' }}>{p.id}</div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', fontWeight: 700, marginBottom: '1rem' }}>{p.badge}</div>
+                    <div style={{ fontWeight: 900, fontSize: '1.1rem', color: '#1d4ed8' }}>{p.id}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#0f172a', fontWeight: 700, marginBottom: '1rem' }}>{p.badge}</div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.8rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.82rem' }}>
                       {p.specs.map((s, idx) => (
-                        <div key={idx} style={{ borderBottom: '1px dashed rgba(0,0,0,0.08)', paddingBottom: '0.3rem' }}>
-                          <div style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>{s.label}</div>
-                          <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{s.val}</div>
+                        <div key={idx} style={{ borderBottom: '1px dashed #cbd5e1', paddingBottom: '0.3rem' }}>
+                          <div style={{ color: '#64748b', fontSize: '0.72rem', textTransform: 'uppercase' }}>{s.label}</div>
+                          <div style={{ fontWeight: 700, color: '#0f172a' }}>{s.val}</div>
                         </div>
                       ))}
                     </div>
 
                     <button
-                      onClick={() => {
-                        setShowCompareModal(false);
-                        onNavigate('contact', p.id);
-                      }}
-                      className="btn btn-primary"
-                      style={{ width: '100%', marginTop: '1.25rem', padding: '0.55rem', fontSize: '0.8rem' }}
+                      onClick={() => { setShowCompareModal(false); onNavigate('contact', p.id); }}
+                      style={{ width: '100%', marginTop: '1.25rem', background: '#1d4ed8', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '0.6rem', fontWeight: 800, fontSize: '0.82rem', cursor: 'pointer' }}
                     >
                       Inquire {p.id} &rarr;
                     </button>
@@ -654,88 +670,57 @@ export default function Products({ onNavigate }) {
                 ))}
               </div>
             </div>
-
-            <div style={{ padding: '1rem 1.5rem', background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-color)', display: 'flex', justifyContent: 'flex-end' }}>
-              <button onClick={() => setShowCompareModal(false)} className="btn btn-secondary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
-                Close Matrix
-              </button>
-            </div>
           </div>
         </div>
       )}
 
-      {/* ══ MODAL SPECIFICATIONS POPUP ═════════════════════════ */}
+      {/* ══ FULL SPECS MODAL ═══════════════════════════════════ */}
       {selectedProduct && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(10, 18, 32, 0.75)',
-            backdropFilter: 'blur(6px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-            padding: '1.5rem'
-          }}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.8)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1.5rem' }}
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            style={{
-              background: '#ffffff',
-              borderRadius: 'var(--radius-md)',
-              maxWidth: '650px',
-              width: '100%',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-              border: '1px solid var(--border-color)'
-            }}
+            style={{ background: '#ffffff', borderRadius: '24px', maxWidth: '650px', width: '100%', overflow: 'hidden', boxShadow: '0 25px 50px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1' }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div style={{ background: 'var(--bg-secondary)', padding: '1.25rem 1.5rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: '#1d4ed8', padding: '1.25rem 1.75rem', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <span className="label-tag-enhanced" style={{ fontSize: '0.7rem' }}>{selectedProduct.badge}</span>
-                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.2rem', fontWeight: 800, marginTop: '2px' }}>{selectedProduct.title} ({selectedProduct.id})</h3>
+                <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#93c5fd', textTransform: 'uppercase' }}>{selectedProduct.badge}</span>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, margin: '2px 0 0 0' }}>{selectedProduct.title} ({selectedProduct.id})</h3>
               </div>
-              <button
-                onClick={() => setSelectedProduct(null)}
-                style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--text-muted)' }}
-              >
-                ✕
-              </button>
+              <button onClick={() => setSelectedProduct(null)} style={{ background: 'none', border: 'none', color: '#ffffff', fontSize: '1.5rem', cursor: 'pointer' }}>✕</button>
             </div>
 
-            {/* Modal Body */}
-            <div style={{ padding: '1.5rem', maxHeight: '75vh', overflowY: 'auto' }}>
+            <div style={{ padding: '1.75rem', maxHeight: '70vh', overflowY: 'auto' }}>
               <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ flex: 1, minWidth: '180px', height: '160px', background: 'radial-gradient(circle, #ffffff, #f1f5f9)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem', border: '1px solid var(--border-color)' }}>
+                <div style={{ flex: 1, minWidth: '180px', height: '160px', background: '#f8fafc', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem', border: '1px solid #cbd5e1' }}>
                   <img src={selectedProduct.img} alt={selectedProduct.title} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
                 </div>
                 <div style={{ flex: 1.5, minWidth: '240px' }}>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.4rem' }}>Overview</h4>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.55', marginBottom: '1rem' }}>{selectedProduct.desc}</p>
+                  <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.4rem' }}>Overview</h4>
+                  <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', margin: 0 }}>{selectedProduct.desc}</p>
                 </div>
               </div>
 
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>Technical Parameters</h4>
-              <div style={{ background: 'var(--bg-secondary)', borderRadius: '8px', border: '1px solid var(--border-color)', padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.6rem' }}>Technical Parameters</h4>
+              <div style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #cbd5e1', padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>
                 {selectedProduct.specs.map((s, idx) => (
-                  <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', fontSize: '0.82rem', borderBottom: idx === selectedProduct.specs.length - 1 ? 'none' : '1px dashed rgba(0,0,0,0.1)' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>{s.label}</span>
-                    <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{s.val}</span>
+                  <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.45rem 0', fontSize: '0.85rem', borderBottom: idx === selectedProduct.specs.length - 1 ? 'none' : '1px dashed #cbd5e1' }}>
+                    <span style={{ color: '#64748b', fontWeight: 600 }}>{s.label}</span>
+                    <span style={{ fontWeight: 800, color: '#1d4ed8' }}>{s.val}</span>
                   </div>
                 ))}
               </div>
 
               {selectedProduct.fullSpecs && (
                 <>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>Extended SOP Construction</h4>
-                  <div style={{ background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-color)', padding: '0.75rem 1rem' }}>
+                  <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.6rem' }}>Extended Construction Specs</h4>
+                  <div style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #cbd5e1', padding: '0.75rem 1rem' }}>
                     {Object.entries(selectedProduct.fullSpecs).map(([key, val], idx) => (
-                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', fontSize: '0.82rem', borderBottom: '1px dashed rgba(0,0,0,0.08)' }}>
-                        <span style={{ color: 'var(--text-muted)', textTransform: 'capitalize' }}>{key}</span>
-                        <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{val}</span>
+                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.45rem 0', fontSize: '0.85rem', borderBottom: '1px dashed #cbd5e1' }}>
+                        <span style={{ color: '#64748b', textTransform: 'capitalize', fontWeight: 600 }}>{key}</span>
+                        <span style={{ fontWeight: 700, color: '#0f172a' }}>{val}</span>
                       </div>
                     ))}
                   </div>
@@ -743,9 +728,8 @@ export default function Products({ onNavigate }) {
               )}
             </div>
 
-            {/* Modal Footer */}
-            <div style={{ padding: '1rem 1.5rem', background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-color)', display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
-              <button onClick={() => setSelectedProduct(null)} className="btn btn-secondary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}>
+            <div style={{ padding: '1rem 1.75rem', background: '#f8fafc', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
+              <button onClick={() => setSelectedProduct(null)} style={{ background: '#ffffff', color: '#0f172a', border: '1px solid #cbd5e1', padding: '0.65rem 1.25rem', borderRadius: '10px', fontWeight: 800, fontSize: '0.85rem', cursor: 'pointer' }}>
                 Close
               </button>
               <button
@@ -754,8 +738,7 @@ export default function Products({ onNavigate }) {
                   setSelectedProduct(null);
                   onNavigate('contact', pId);
                 }}
-                className="btn btn-primary"
-                style={{ padding: '0.6rem 1.5rem', fontSize: '0.85rem' }}
+                style={{ background: '#1d4ed8', color: '#ffffff', border: 'none', padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 800, fontSize: '0.85rem', cursor: 'pointer' }}
               >
                 Inquire Model ({selectedProduct.id}) &nbsp;&rarr;
               </button>
@@ -763,6 +746,9 @@ export default function Products({ onNavigate }) {
           </div>
         </div>
       )}
+
+      {/* ══ HIGH-IMPACT PROMO BANNER ══════════════════════════ */}
+      <PromoBannerCard onNavigate={onNavigate} />
 
     </div>
   );

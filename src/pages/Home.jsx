@@ -87,7 +87,7 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* Interactive CAD Blueprint Hero Display with ScaleUp */}
-            <ScaleUp delay={0.2} className="hero-spindle-container">
+            <ScaleUp delay={0.2} className="hero-spindle-container desktop-only">
               <img
                 src="/images/hero_spindle_clean.png"
                 alt="GPS Spindle"
@@ -160,9 +160,9 @@ export default function Home({ onNavigate }) {
       <VideoShowcase />
 
       {/* ══ 4. REBUILD SERVICES GRID ═══════════════════════════ */}
-      <section className="section container" style={{ paddingTop: 'var(--space-xxl)' }}>
+      <section className="section container" style={{ paddingTop: 'var(--space-xxl)', borderTop: 'none', borderBottom: 'none' }}>
         {/* Machin 2-Column Section Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3rem' }}>
+        <div className="machin-2col-header" style={{ marginBottom: '3rem' }}>
           <div>
             <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
               ENGINEERING SERVICES

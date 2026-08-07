@@ -7,62 +7,14 @@ export default function Capabilities({ onNavigate }) {
   const [activeFacilityTab, setActiveFacilityTab] = useState('grinding');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategoryFilter, setActiveCategoryFilter] = useState('all');
-  const [viewMode, setViewMode] = useState('grid');
-
-  // Capability Estimator Widget State
-  const [estimatorApp, setEstimatorApp] = useState('milling');
-  const [estimatorRpm, setEstimatorRpm] = useState(45000);
-  const [estimatorRunout, setEstimatorRunout] = useState('submicron');
-
-  // QC Stepper Active Step
-  const [activeQcStep, setActiveQcStep] = useState(0);
 
   // --- DATA SOURCES ---
-  const keyStats = [
-    {
-      value: '< 0.0005 mm',
-      label: 'Taper Grinding Tolerance',
-      icon: (
-        <svg width="22" height="22" fill="none" stroke="#1d4ed8" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      )
-    },
-    {
-      value: 'ISO Class 7',
-      label: 'HEPA Cleanroom Assembly',
-      icon: (
-        <svg width="22" height="22" fill="none" stroke="#1d4ed8" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.12a2 2 0 00-1.165.235l-1.39.77a2 2 0 00-.77 2.39l.77 1.39a2 2 0 001.165.856l2.387.477a6 6 0 003.86-.517l.318-.158a6 6 0 013.86-.517l2.387.477a2 2 0 001.165-.235l1.39-.77a2 2 0 00.77-2.39l-.77-1.39z" />
-        </svg>
-      )
-    },
-    {
-      value: '100,000 RPM',
-      label: 'Dynamic Balancing (ISO G0.4)',
-      icon: (
-        <svg width="22" height="22" fill="none" stroke="#1d4ed8" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      )
-    },
-    {
-      value: '25.0 kN',
-      label: 'Drawbar Retention Capacity',
-      icon: (
-        <svg width="22" height="22" fill="none" stroke="#1d4ed8" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-      )
-    }
-  ];
-
   const facilityZones = {
     grinding: {
       title: 'CNC Cylindrical & Taper Grinding Cell',
       tag: 'Sub-Micron Precision',
       image: '/images/cylindrical_grinding.png',
-      description: 'Equipped with Studer CNC multi-wheelhead cylindrical grinders housed inside a climate-controlled inspection bay. We restore spindle tapers, bearing journals, and housing bores to sub-0.0005 mm roundness.',
+      description: 'Equipped with Studer CNC multi-wheelhead cylindrical grinders housed inside a climate-controlled inspection bay (68°F ± 0.5°F). We restore spindle tapers, bearing journals, and housing bores to sub-0.0005 mm roundness.',
       specs: [
         { label: 'Max Grinding Diameter', val: 'ø 350 mm (13.7 in)' },
         { label: 'Grinding Length Capacity', val: 'Up to 1,000 mm' },
@@ -71,7 +23,7 @@ export default function Capabilities({ onNavigate }) {
       ],
       bullets: [
         'Automatic optical laser in-process gauging system',
-        'Multi-angle grinding heads for complex internal & external tapers',
+        'Multi-angle grinding heads for HSK, BT, CAT & ISO tapers',
         'Sub-micron hydrostatic wheel spindle positioning'
       ]
     },
@@ -95,8 +47,8 @@ export default function Capabilities({ onNavigate }) {
     balancing: {
       title: 'High-Speed Schenck Dynamic Balancing Cell',
       tag: 'Ultra-Low Vibration (ISO G0.4)',
-      image: '/images/balancing.png',
-      description: 'Operating at rotational speeds up to 100,000 RPM, our Schenck dynamic balancing center corrects residual rotor imbalance down to ISO G0.4 standards, extending bearing life.',
+      image: '/images/dynamic_balancing_card.png',
+      description: 'Operating at rotational speeds up to 100,000 RPM, our Schenck dynamic balancing center corrects residual rotor imbalance down to ISO G0.4 standards, extending bearing life and eliminating thermal resonance.',
       specs: [
         { label: 'Max Rotational Speed', val: '100,000 RPM' },
         { label: 'Balancing Grade Standard', val: 'ISO 1940-1 Grade G0.4' },
@@ -109,35 +61,35 @@ export default function Capabilities({ onNavigate }) {
         'Non-contact laser encoder pulse synchronization'
       ]
     },
-    diagnostics: {
-      title: 'Sub-Micron Metrology & Run-In Testing Bench',
-      tag: 'Certified Digital Quality',
-      image: '/images/diagnostic_testing.png',
-      description: 'Every repaired or custom-built spindle undergoes an automated 24-hour run-in procedure. Real-time telemetry monitors drawbar force, temperature stabilization, and shaft dynamic displacement.',
+    electrical: {
+      title: 'Electrical Rewinding & Encoder Tuning Lab',
+      tag: 'VPI Class H Epoxy Rewind',
+      image: '/images/vpi_electrical_card.png',
+      description: 'In-house motor winding facility capable of rewinding synchronous and asynchronous motorized spindles from 0.5 kW to 120 kW. Includes Vacuum Pressure Impregnation (VPI) and encoder alignment.',
       specs: [
-        { label: 'Drawbar Force Range', val: 'Up to 25.0 kN Digital' },
-        { label: 'Thermal Sensor Tracking', val: '8-Channel Infrared Matrix' },
-        { label: 'Dynamic Runout Meter', val: '< 0.0008 mm TIR at Max Speed' },
-        { label: 'Run-In Protocol', val: 'Automated 24-Hour Ramp Log' }
+        { label: 'Motor Power Capacity', val: '0.5 kW to 120 kW' },
+        { label: 'Insulation Class Rating', val: 'Class H (180°C Thermal)' },
+        { label: 'Encoders Synchronized', val: 'Heidenhain, Fanuc, Lenord+Bauer' },
+        { label: 'Surge Test Voltage', val: 'Up to 5.0 kV Digital Test' }
       ],
       bullets: [
-        'Full digital QR traceability certificate generated per spindle',
-        'High-frequency accelerometer spectrum diagnostic report',
-        'Automated encoder & feedback signal protocol verification'
+        'Vacuum-Pressure Impregnation (VPI) epoxy resin curing oven',
+        'Oscilloscope phase-matching for tool change orientation',
+        'Thermal thermistor (KTY/PTC) sensor calibration'
       ]
     }
   };
 
   const allSpecs = [
-    { id: 'spec-1', category: 'grinding', asset: 'Taper & Journal CNC Grinding', rating: '< 0.0005 mm Roundness', equip: 'Studer CNC Cylindrical Grinder', details: 'Dual wheelhead configuration with in-process laser sizing control.' },
-    { id: 'spec-2', category: 'balancing', asset: 'Dynamic Balancing Range', rating: 'Up to 100,000 RPM (ISO G0.4)', equip: 'Schenck High-Speed Balancer', details: 'Micro-gram mass correction via dual-plane laser phase alignment.' },
-    { id: 'spec-3', category: 'cleanroom', asset: 'Cleanroom Assembly Class', rating: 'Positive Pressure Class 10,000 (ISO 7)', equip: 'HEPA Positive Filtration System', details: 'Laminar flow workstations with positive climate pressure control.' },
-    { id: 'spec-4', category: 'diagnostic', asset: 'Drawbar Retention Force Range', rating: 'Up to 25.0 kN retention force', equip: 'Digital Pull-Force Calibrator Bench', details: 'Automated strain-gauge force transducer with digital telemetry.' },
-    { id: 'spec-5', category: 'diagnostic', asset: 'Motor Rewinding Capacity', rating: '0.5 kW to 75 kW synchronous', equip: 'Vacuum-Pressure Impregnation (VPI) Line', details: 'Class H thermal insulation winding with surge reflection testing.' },
-    { id: 'spec-6', category: 'grinding', asset: 'Temperature Regulation', rating: '68°F ± 0.5°F (20°C ± 0.3°C)', equip: 'Climate-Regulated Inspection Cell', details: 'Continuous HVAC thermal monitoring prevents metal expansion variance.' },
-    { id: 'spec-7', category: 'diagnostic', asset: 'Vibration Analysis FFT', rating: '0.001 mm/s Peak Resolution', equip: 'Emerson 4-Channel Spectrum Analyzer', details: 'High-frequency spectrum tracking up to 50 kHz sampling bandwidth.' },
-    { id: 'spec-8', category: 'grinding', asset: 'Internal Bore Grinding', rating: 'ø 10 mm to ø 250 mm Bore ID', equip: 'Hydrostatic Internal Grinder', details: 'High-speed HF grinding quills reaching 90,000 RPM internal wheel speeds.' },
-    { id: 'spec-9', category: 'cleanroom', asset: 'Bearing Preload Calibration', rating: '0.01 kN Preload Resolution', equip: 'Digital Pneumatic Load Cell Bench', details: 'Precision axial load verification ensuring zero bearing skidding.' }
+    { id: 'spec-1', category: 'tapers', asset: 'HSK & BT Taper CNC Precision Grinding', rating: '< 0.0005 mm Roundness', equip: 'Studer S31 CNC Cylindrical Grinder', details: 'Dual wheelhead configuration for HSK-A/E/F, BT30/40/50, and CAT tapers with laser sizing.', image: '/images/tool_tapers_card.png' },
+    { id: 'spec-2', category: 'balancing', asset: 'Dynamic Vector Balancing Cell', rating: 'Up to 100,000 RPM (ISO G0.4)', equip: 'Schenck CAB 920 High-Speed Balancer', details: 'Micro-gram mass correction via dual-plane laser phase alignment.', image: '/images/dynamic_balancing_card.png' },
+    { id: 'spec-3', category: 'cleanroom', asset: 'Cleanroom Assembly Environment', rating: 'Positive Pressure ISO Class 7', equip: 'HEPA 99.99% Positive Air Filtration', details: 'Laminar flow workstations with anti-static ESD flooring and temperature control.', image: '/images/upgrade-bg-adobe-14.png' },
+    { id: 'spec-4', category: 'metrology', asset: 'Drawbar Retention Pull-Force Testing', rating: 'Up to 30.0 kN Force Meter', equip: 'Digital Load-Cell Retention Tester', details: 'Automated strain-gauge force transducer verifying gripper collet clamping.', image: '/images/drawbar_retention_card.png' },
+    { id: 'spec-5', category: 'electrical', asset: 'VPI Motor Stator Rewinding', rating: '0.5 kW to 120 kW Capacity', equip: 'Vacuum-Pressure Impregnation Line', details: 'Class H thermal insulation winding with high-voltage surge reflection testing.', image: '/images/vpi_electrical_card.png' },
+    { id: 'spec-6', category: 'encoders', asset: 'Encoder & Sensor Phase Alignment', rating: '0.01° Phase Resolution', equip: 'Digital Oscilloscope & Phase Bench', details: 'Precise zero-point synchronization for Heidenhain ERM, Fanuc coders, and Lenord+Bauer.', image: '/images/encoder_sensor_card.png' },
+    { id: 'spec-7', category: 'metrology', asset: 'FFT Vibration Spectrum Analyzer', rating: '0.001 mm/s Peak Resolution', equip: 'Emerson 4-Channel FFT Analyzer', details: 'High-frequency spectrum tracking up to 50 kHz sampling bandwidth for bearing resonance.', image: '/images/sensor.png' },
+    { id: 'spec-8', category: 'tapers', asset: 'Internal Bore Hydrostatic Grinding', rating: 'ø 10 mm to ø 250 mm Bore ID', equip: 'Hydrostatic High-Speed Internal Grinder', details: 'High-speed HF grinding quills reaching 90,000 RPM internal wheel speeds.', image: '/images/taper_shaft.png' },
+    { id: 'spec-9', category: 'cleanroom', asset: 'Bearing Preload Pneumatic Calibration', rating: '0.01 kN Preload Resolution', equip: 'Digital Load Cell Preload Bench', details: 'Precision axial load verification ensuring zero bearing skidding and maximum rigidity.', image: '/images/upgrade-bg-adobe-13.png' }
   ];
 
   const filteredSpecs = useMemo(() => {
@@ -152,84 +104,6 @@ export default function Capabilities({ onNavigate }) {
       return matchesCategory && matchesSearch;
     });
   }, [searchQuery, activeCategoryFilter]);
-
-  const estimatorResult = useMemo(() => {
-    let cell = 'Sub-Micron Grinding & Cleanroom Cell';
-    let balancing = 'ISO G0.4 (Ultra-Precision)';
-    let cleanroom = 'ISO Class 7 (Class 10,000)';
-    let runout = '< 0.0005 mm TIR';
-    let warranty = '12 Months OEM-Equivalent';
-
-    if (estimatorRpm > 60000 || estimatorRunout === 'submicron') {
-      cell = 'Ultra High-Speed Aerospace Diagnostic Bay';
-      balancing = 'ISO G0.4 (Zero-Resonance Laser)';
-      runout = '< 0.0003 mm TIR (Sub-Micron)';
-    } else if (estimatorApp === 'heavy') {
-      cell = 'Heavy Duty Milling & Torque Testing Bench';
-      balancing = 'ISO G1.0 Heavy Duty Standard';
-      runout = '< 0.0010 mm TIR';
-    }
-
-    return { cell, balancing, cleanroom, runout, warranty };
-  }, [estimatorApp, estimatorRpm, estimatorRunout]);
-
-  const qcSteps = [
-    {
-      num: 1,
-      title: 'Digital Intake Metrology',
-      desc: '3D Laser scan & dynamic runout baseline logging upon arrival.',
-      checkpoints: [
-        'Complete disassembly geometry recording',
-        'Taper runout & housing bore CMM verification',
-        'Drawbar pull-force baseline measurement'
-      ],
-      img: '/images/diagnostic_testing.png'
-    },
-    {
-      num: 2,
-      title: 'CNC Sub-Micron Grinding',
-      desc: 'Precision taper re-grinding down to sub-0.0005 mm roundness.',
-      checkpoints: [
-        'Climate-controlled grinding cell (68°F ± 0.5°F)',
-        'In-process laser sizing control',
-        'Super-finish Ra 0.05 µm optical taper restoration'
-      ],
-      img: '/images/cylindrical_grinding.png'
-    },
-    {
-      num: 3,
-      title: 'ISO 7 Cleanroom Assembly',
-      desc: 'Particle-free super-precision ceramic & steel bearing preloading.',
-      checkpoints: [
-        'HEPA 99.99% positive pressure cleanroom',
-        'Automated micro-volume grease metering (<0.01g)',
-        'Load-cell axial bearing preload setting'
-      ],
-      img: '/images/clean_room.png'
-    },
-    {
-      num: 4,
-      title: 'High-Speed Dynamic Balancing',
-      desc: 'Schenck dual-plane vector balancing up to 100k RPM.',
-      checkpoints: [
-        'Residual imbalance reduced to ISO G0.4',
-        'Laser optical phase & speed tracking',
-        'Vibration FFT frequency analysis'
-      ],
-      img: '/images/balancing.png'
-    },
-    {
-      num: 5,
-      title: '24-Hr Digital Certification',
-      desc: 'Full speed thermal ramp-up & digital QR telemetry report.',
-      checkpoints: [
-        '24-Hour continuous automated run-in',
-        'Thermal growth & 8-channel temperature tracking',
-        '12-Month OEM warranty digital QR badge issuing'
-      ],
-      img: '/images/upgrade-bg-adobe-13.png'
-    }
-  ];
 
   return (
     <div style={{ paddingTop: '100px', background: '#ffffff', minHeight: '100vh' }}>
@@ -246,7 +120,7 @@ export default function Capabilities({ onNavigate }) {
                 Technical Capabilities <span style={{ color: '#1d4ed8' }}>&amp; Metrology Assets</span>
               </h1>
               <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: '0 0 2rem 0', maxWidth: '600px' }}>
-                General Precision Spindles maintains a dedicated Pune facility configured for sub-micron CNC grinding, ISO Class 7 cleanroom assembly, and 100,000 RPM dynamic balancing.
+                General Precision Spindles maintains a dedicated Pune facility configured for sub-micron CNC grinding, ISO Class 7 cleanroom assembly, electrical VPI motor rewinding, and 100,000 RPM dynamic balancing.
               </p>
 
               {/* 3 Metric Badges Row */}
@@ -277,7 +151,7 @@ export default function Capabilities({ onNavigate }) {
                   <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Optical Surface Finish</span>
                 </div>
                 <div>
-                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>25.0 kN</span>
+                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>30.0 kN</span>
                   <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Drawbar Force Capacity</span>
                 </div>
                 <div>
@@ -320,7 +194,7 @@ export default function Capabilities({ onNavigate }) {
       {/* ══ 1. INTERACTIVE FACILITY INFRASTRUCTURE SHOWCASE ══ */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 ENGINEERING FACILITIES
@@ -342,7 +216,7 @@ export default function Capabilities({ onNavigate }) {
               { id: 'grinding', label: '01. Grinding & Machining' },
               { id: 'cleanroom', label: '02. Class 10,000 Cleanroom' },
               { id: 'balancing', label: '03. Dynamic Balancing' },
-              { id: 'diagnostics', label: '04. Diagnostic Bench' },
+              { id: 'electrical', label: '04. Electrical & VPI Rewinding' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -421,10 +295,10 @@ export default function Capabilities({ onNavigate }) {
       {/* ══ 2. CERTIFIED EQUIPMENT SPECIFICATION MATRIX ═══════ */}
       <section style={{ padding: '5rem 0', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                CERTIFIED EQUIPMENT SHEETS
+                TECHNICAL COMPATIBILITY
               </span>
             </SlideInLeft>
             <SlideInRight>
@@ -432,7 +306,7 @@ export default function Capabilities({ onNavigate }) {
                 Equipment &amp; Asset <span style={{ color: '#1d4ed8' }}>Specification Matrix</span>
               </h2>
               <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
-                Search and filter our verified metrology tools, CNC grinders, cleanroom systems, and diagnostic calibrators.
+                Search and filter our verified metrology tools, CNC grinders, cleanroom systems, encoders, and motor rewinding capacities.
               </p>
             </SlideInRight>
           </div>
@@ -443,7 +317,7 @@ export default function Capabilities({ onNavigate }) {
             <div style={{ position: 'relative', flexGrow: 1, maxWidth: '420px' }}>
               <input
                 type="text"
-                placeholder="Search equipment, capacity, asset name..."
+                placeholder="Search tapers, encoders, balancing..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
@@ -466,10 +340,12 @@ export default function Capabilities({ onNavigate }) {
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {[
                 { id: 'all', label: `All Assets (${allSpecs.length})` },
-                { id: 'grinding', label: 'Grinding & CNC' },
+                { id: 'tapers', label: 'Tool Tapers' },
                 { id: 'balancing', label: 'Balancing' },
                 { id: 'cleanroom', label: 'Cleanroom' },
-                { id: 'diagnostic', label: 'Diagnostic' },
+                { id: 'electrical', label: 'Electrical' },
+                { id: 'encoders', label: 'Encoders' },
+                { id: 'metrology', label: 'Metrology' },
               ].map((cat) => (
                 <button
                   key={cat.id}
@@ -491,23 +367,49 @@ export default function Capabilities({ onNavigate }) {
             </div>
           </div>
 
-          {/* Asset Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
-            {filteredSpecs.map((item) => (
-              <ScaleUp key={item.id}>
-                <div style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid #cbd5e1', padding: '1.75rem 1.5rem', boxShadow: '0 4px 16px rgba(15,23,42,0.04)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                  <div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '3px 8px', borderRadius: '6px', textTransform: 'uppercase', marginBottom: '0.85rem', display: 'inline-block' }}>
-                      {item.category}
-                    </span>
-                    <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.75rem', lineHeight: '1.3' }}>{item.asset}</h4>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 900, color: '#1d4ed8', marginBottom: '0.85rem' }}>{item.rating}</div>
+          {/* Asset Grid — 2-Column Split Cards matching Services.jsx Retrofitting Section */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            {filteredSpecs.map((item, idx) => (
+              <ScaleUp key={item.id} delay={idx * 0.1}>
+                <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', display: 'grid', gridTemplateColumns: item.image ? '1.1fr 1fr' : '1fr', height: '100%', boxShadow: '0 8px 24px rgba(15,23,42,0.06)' }}>
+                  {/* Left Specs Panel */}
+                  <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '4px 10px', borderRadius: '6px', display: 'inline-block', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                        {item.rating}
+                      </span>
+                      <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.3', marginBottom: '0.85rem' }}>
+                        {item.asset}
+                      </h3>
+                      <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', margin: 0 }}>
+                        {item.details}
+                      </p>
+                    </div>
+
+                    <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '0.85rem', marginTop: '1.5rem' }}>
+                      <span style={{ fontSize: '0.74rem', color: '#1d4ed8', fontWeight: 800, display: 'block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>MACHINE / EQUIPMENT:</span>
+                      <span style={{ fontSize: '0.88rem', color: '#0f172a', fontWeight: 700, display: 'block', marginTop: '2px' }}>{item.equip}</span>
+                    </div>
                   </div>
 
-                  <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '0.85rem' }}>
-                    <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block' }}>{item.equip}</span>
-                    <p style={{ fontSize: '0.82rem', color: '#475569', marginTop: '4px', margin: 0, lineHeight: '1.5' }}>{item.details}</p>
-                  </div>
+                  {/* Right 3D Object Image Panel */}
+                  {item.image && (
+                    <div style={{ background: '#f8fafc', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.75rem', borderLeft: '1px solid #e2e8f0' }}>
+                      <img
+                        src={item.image}
+                        alt={item.asset}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          maxHeight: '280px',
+                          transform: 'scale(1.15)',
+                          objectFit: 'contain',
+                          display: 'block',
+                          filter: 'drop-shadow(0 12px 28px rgba(15,23,42,0.14))'
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </ScaleUp>
             ))}
@@ -515,174 +417,68 @@ export default function Capabilities({ onNavigate }) {
         </div>
       </section>
 
-      {/* ══ 3. SPINDLE CAPABILITY MATCHER CALCULATOR WIDGET ══ */}
+      {/* ══ 3. QUALITY & METROLOGY STANDARDS GRID ════════════ */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="machin-2col-header">
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                SPINDLE CAPABILITY MATCHER
+                QUALITY GUARANTEE
               </span>
             </SlideInLeft>
             <SlideInRight>
               <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Dynamic Process <span style={{ color: '#1d4ed8' }}>Tolerance Calculator</span>
+                Certified Metrology &amp; <span style={{ color: '#1d4ed8' }}>Quality Standards</span>
               </h2>
               <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
-                Select your operational parameters below to calculate guaranteed facility tolerances and diagnostic protocols.
+                Every rebuilt and custom manufactured spindle operates under rigorous ISO quality systems and digital telemetry logging.
               </p>
             </SlideInRight>
           </div>
 
-          <div style={{ background: '#ffffff', borderRadius: '24px', border: '1px solid #cbd5e1', padding: '3rem', boxShadow: '0 12px 36px rgba(15,23,42,0.06)', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem', alignItems: 'center' }}>
-            {/* Left Inputs */}
-            <div>
-              <div style={{ marginBottom: '1.75rem' }}>
-                <label style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0f172a', display: 'block', marginBottom: '0.5rem' }}>1. Spindle Application Type</label>
-                <select
-                  value={estimatorApp}
-                  onChange={(e) => setEstimatorApp(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', fontWeight: 700, color: '#1e293b' }}
-                >
-                  <option value="milling">High-Speed CNC Milling &amp; Machining</option>
-                  <option value="grinding">Sub-Micron CNC Cylindrical / Internal Grinding</option>
-                  <option value="heavy">Heavy-Duty Lathe &amp; Turning Spindle</option>
-                  <option value="pcb">PCB &amp; Micro-Drilling High Frequency</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: '1.75rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0f172a' }}>2. Max Operating Speed (RPM)</label>
-                  <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#1d4ed8' }}>{estimatorRpm.toLocaleString()} RPM</span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            <ScaleUp delay={0.1}>
+              <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', padding: '2rem', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(29,78,216,0.1)', color: '#1d4ed8', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
                 </div>
-                <input
-                  type="range"
-                  min="5000"
-                  max="100000"
-                  step="5000"
-                  value={estimatorRpm}
-                  onChange={(e) => setEstimatorRpm(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#1d4ed8' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0f172a', display: 'block', marginBottom: '0.5rem' }}>3. Required Dynamic Runout Tolerance</label>
-                <select
-                  value={estimatorRunout}
-                  onChange={(e) => setEstimatorRunout(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', fontWeight: 700, color: '#1e293b' }}
-                >
-                  <option value="submicron">Sub-Micron (&lt; 0.5 µm / 0.0005 mm TIR)</option>
-                  <option value="standard">Standard Precision (&lt; 1.5 µm TIR)</option>
-                  <option value="heavy">Industrial Heavy Duty (&lt; 3.0 µm TIR)</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Right Output Result Box — Royal Blue */}
-            <div style={{ background: '#1d4ed8', borderRadius: '20px', padding: '2.5rem', color: '#ffffff', boxShadow: '0 16px 40px rgba(29, 78, 216, 0.3)' }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
-                CERTIFIED CAPABILITY MATCH
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div>
-                  <span style={{ fontSize: '0.74rem', color: '#93c5fd', fontWeight: 700, display: 'block' }}>Designated Facility Cell</span>
-                  <span style={{ fontSize: '1.15rem', fontWeight: 900, color: '#ffffff', display: 'block', marginTop: '2px' }}>{estimatorResult.cell}</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '0.74rem', color: '#93c5fd', fontWeight: 700, display: 'block' }}>Balancing Grade Standard</span>
-                  <span style={{ fontSize: '1.15rem', fontWeight: 900, color: '#ffffff', display: 'block', marginTop: '2px' }}>{estimatorResult.balancing}</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '0.74rem', color: '#93c5fd', fontWeight: 700, display: 'block' }}>Guaranteed Dynamic Runout</span>
-                  <span style={{ fontSize: '1.15rem', fontWeight: 900, color: '#ffffff', display: 'block', marginTop: '2px' }}>{estimatorResult.runout}</span>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '1.75rem', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '1.25rem', fontSize: '0.85rem', fontWeight: 700, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
-                <span>Includes {estimatorResult.warranty} &amp; QR Digital Logbook</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 4. TRACEABILITY WORKFLOW STEPPER ══════════════════ */}
-      <section style={{ padding: '5rem 0', background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
-            <SlideInLeft>
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                TRACEABILITY WORKFLOW
-              </span>
-            </SlideInLeft>
-            <SlideInRight>
-              <h2 style={{ fontSize: '2.35rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.25', margin: 0, letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Sub-Micron <span style={{ color: '#1d4ed8' }}>Traceability Workflow</span>
-              </h2>
-              <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.6', marginTop: '0.75rem' }}>
-                Every spindle rebuild and manufacturing project is governed by strict ISO 9001:2015 process controls across 5 verification stages.
-              </p>
-            </SlideInRight>
-          </div>
-
-          {/* Stepper Buttons */}
-          <div style={{ display: 'flex', gap: '10px', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
-            {qcSteps.map((step, idx) => (
-              <button
-                key={step.num}
-                onClick={() => setActiveQcStep(idx)}
-                style={{
-                  padding: '0.75rem 1.25rem',
-                  borderRadius: '12px',
-                  border: activeQcStep === idx ? '2px solid #1d4ed8' : '1px solid #cbd5e1',
-                  background: activeQcStep === idx ? '#1d4ed8' : '#ffffff',
-                  color: activeQcStep === idx ? '#ffffff' : '#1e293b',
-                  fontWeight: 800,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer'
-                }}
-              >
-                {step.num}. {step.title}
-              </button>
-            ))}
-          </div>
-
-          {/* Stepper Active Card */}
-          {qcSteps[activeQcStep] && (
-            <ScaleUp key={activeQcStep}>
-              <div style={{ background: '#ffffff', borderRadius: '24px', border: '1px solid #cbd5e1', overflow: 'hidden', padding: '2.5rem', boxShadow: '0 12px 36px rgba(15,23,42,0.06)', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem', alignItems: 'center' }}>
-                <div>
-                  <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '4px 10px', borderRadius: '6px', display: 'inline-block', marginBottom: '1rem' }}>
-                    STAGE 0{qcSteps[activeQcStep].num}
-                  </span>
-                  <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', marginBottom: '1rem', lineHeight: '1.3' }}>
-                    {qcSteps[activeQcStep].title}
-                  </h3>
-                  <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: '1.65', marginBottom: '1.75rem' }}>
-                    {qcSteps[activeQcStep].desc}
-                  </p>
-
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem' }}>
-                    {qcSteps[activeQcStep].checkpoints.map((cp, i) => (
-                      <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#334155', fontSize: '0.9rem', fontWeight: 700, marginBottom: '8px' }}>
-                        <span style={{ color: '#1d4ed8', fontWeight: 900 }}>✓</span>
-                        <span>{cp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div style={{ background: '#f8fafc', borderRadius: '16px', overflow: 'hidden', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '320px' }}>
-                  <img src={qcSteps[activeQcStep].img} alt={qcSteps[activeQcStep].title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-                </div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.75rem' }}>ISO 9001:2015 Certification</h4>
+                <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', margin: 0 }}>
+                  Our complete manufacturing and rebuild lifecycle operates under certified quality management protocols, ensuring repeatable sub-micron precision.
+                </p>
               </div>
             </ScaleUp>
-          )}
+
+            <ScaleUp delay={0.2}>
+              <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', padding: '2rem', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(29,78,216,0.1)', color: '#1d4ed8', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.75rem' }}>12-Month OEM Warranty</h4>
+                <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', margin: 0 }}>
+                  We back every spindle with a full 12-month operational warranty, providing OEM-equivalent protection and dynamic run-in reports.
+                </p>
+              </div>
+            </ScaleUp>
+
+            <ScaleUp delay={0.3}>
+              <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', padding: '2rem', boxShadow: '0 8px 24px rgba(15,23,42,0.06)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(29,78,216,0.1)', color: '#1d4ed8', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.75rem' }}>Digital QR Tracking Certificate</h4>
+                <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', margin: 0 }}>
+                  Every spindle carries a laser-etched QR code linking directly to bearing preloads, drawbar retention force logs, and balancing datasheets.
+                </p>
+              </div>
+            </ScaleUp>
+          </div>
         </div>
       </section>
 

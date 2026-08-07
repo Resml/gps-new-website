@@ -61,10 +61,10 @@ export default function TestimonialsSection() {
       <div className="container">
         
         {/* Machin Layout Grid: Left Header & Controls | Right Headline & Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start' }}>
+        <div className="machin-2col-header" style={{ marginBottom: 0 }}>
           
           {/* Left Side: Category Tag & Slider Arrows */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', minHeight: '280px' }}>
+          <div className="testimonials-header-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', minHeight: '280px' }}>
             <div>
               <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 CLIENT FEEDBACK
@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Slider Navigation Arrows (Machin Square Style) */}
-            <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+            <div className="testimonials-arrows-wrap" style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
               <motion.button
                 whileHover={{ scale: 1.08, background: '#f1f5f9' }}
                 whileTap={{ scale: 0.94 }}
@@ -140,6 +140,7 @@ export default function TestimonialsSection() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="testimonials-cards-grid"
                   style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}
                 >
                   {visibleTestimonials.map((item) => (

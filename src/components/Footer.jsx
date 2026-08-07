@@ -104,10 +104,10 @@ export default function Footer({ onNavigate }) {
         <div style={{ height: '1px', background: 'rgba(255, 255, 255, 0.18)', marginBottom: '3rem' }} />
 
         {/* 3-Column Grid Layout with Thin Vertical Dividers */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(280px, 1.1fr) minmax(320px, 1.4fr) minmax(280px, 1.1fr)', gap: '2.5rem' }}>
+        <div className="machin-footer-grid">
 
           {/* Column 1: Headline & Description */}
-          <div style={{ paddingRight: '2rem', borderRight: '1px solid rgba(255, 255, 255, 0.18)' }}>
+          <div className="footer-col-headline">
             <h3 style={{ fontSize: '1.75rem', fontWeight: 900, color: '#ffffff', lineHeight: '1.25', margin: '0 0 1rem 0' }}>
               Discover our range of precision spindle manufacturing &amp; rebuild services.
             </h3>
@@ -130,7 +130,7 @@ export default function Footer({ onNavigate }) {
           </div>
 
           {/* Column 2: Navigation & Solutions Sub-Grid */}
-          <div style={{ paddingRight: '2rem', borderRight: '1px solid rgba(255, 255, 255, 0.18)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="footer-links-grid">
 
             {/* Sub-Col 1: Navigation */}
             <div>

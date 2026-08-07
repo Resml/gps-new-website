@@ -74,7 +74,7 @@ export default function WhyChooseUsSection({ onNavigate }) {
       {/* Section Header */}
       <div className="container">
         {/* Exact Machin 2-Column Section Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+        <div className="machin-2col-header">
           <div>
             <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
               PROVEN ENGINEERING VALUE
@@ -122,7 +122,7 @@ export default function WhyChooseUsSection({ onNavigate }) {
         <div className="why-sticky-stack-list" style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
           {advantages.map((item, idx) => {
             const isEven = idx % 2 === 1;
-            const stickyTopOffset = 110 + idx * 24;
+            const stickyTopOffset = 85 + idx * 16;
 
             return (
               <motion.div
@@ -176,6 +176,7 @@ export default function WhyChooseUsSection({ onNavigate }) {
 
                   {/* Top-Left Advantage Pill */}
                   <div
+                    className="why-card-badge-tag desktop-only"
                     style={{
                       position: 'absolute',
                       top: '16px',
