@@ -8104,3 +8104,159 @@ svg {
     max-width: 100%;
   }
 }
+
+/* Parallax Overlay Responsive Classes */
+.parallax-overlay-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.parallax-stats-group {
+  display: flex;
+  gap: 3rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .parallax-overlay-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .parallax-stats-group {
+    text-align: left;
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* About Hero Header */
+.about-hero-header {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 992px) {
+  .about-hero-header {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  .brand-logos-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Performance Upgrades Responsive Rules */
+.performance-upgrades-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .performance-upgrades-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .performance-card-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .performance-card-inner > div:first-child {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .performance-card-inner > div:last-child {
+    padding: 1.5rem !important;
+    min-height: 220px !important;
+  }
+}
+
+/* 4-Metric Hero Row Responsive Rules */
+.hero-metrics-4col {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.hero-metric-item {
+  flex: 0 0 auto;
+}
+
+.hero-metric-item:last-child {
+  text-align: right;
+}
+
+.hero-metric-item .metric-val {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-metric-item .metric-lbl {
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .hero-metrics-4col {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .hero-metric-item:last-child {
+    text-align: left !important;
+  }
+
+  .hero-metric-item .metric-val {
+    font-size: 2.2rem !important;
+  }
+
+  .hero-metric-item .metric-lbl {
+    font-size: 0.82rem !important;
+  }
+}

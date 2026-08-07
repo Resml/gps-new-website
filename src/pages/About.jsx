@@ -9,81 +9,72 @@ export default function About({ onNavigate }) {
     <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ══ 1. FRAMER INDUSTRIAL HERO SECTION ════════════════════════ */}
-      <section style={{ padding: '4rem 0', background: '#ffffff' }}>
+      <section style={{ padding: '4rem 0', background: '#f8fafc' }}>
         <div className="container">
           
           {/* Top 2-Column Header Row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: '3.5rem', alignItems: 'flex-start', marginBottom: '3.5rem' }}>
+          <div className="about-hero-header" style={{ alignItems: 'center' }}>
             {/* Left: Eyebrow + Huge Title */}
             <div>
-              <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#1d4ed8', letterSpacing: '0.14em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
                 ABOUT GPS SPINDLES
               </span>
-              <h1 style={{ fontSize: '3.5rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.12', margin: 0, letterSpacing: '-0.03em', borderBottom: 'none', paddingBottom: 0 }}>
+              <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.2rem)', fontWeight: 700, color: '#111827', lineHeight: '1.1', margin: 0, letterSpacing: '-0.02em' }}>
                 Pioneering sub-micron spindle engineering since 2017.
               </h1>
             </div>
 
             {/* Right: Subheadline Paragraph + Action Buttons */}
-            <div style={{ paddingTop: '2.5rem' }}>
-              <p style={{ color: '#334155', fontSize: '1.05rem', lineHeight: '1.65', margin: '0 0 1.75rem 0', maxWidth: '460px', fontWeight: 500 }}>
+            <div>
+              <p style={{ color: '#374151', fontSize: '1.05rem', lineHeight: '1.6', margin: '0 0 2rem 0', maxWidth: '420px', fontWeight: 500 }}>
                 General Precision Spindles (GPS Spindles) is Pune's premier independent specialist in CNC, VMC, HMC, and High-Frequency spindle manufacturing, repair, and dynamic balancing.
               </p>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <button
-                  onClick={() => onNavigate && onNavigate('capabilities')}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    background: '#1d4ed8',
-                    color: '#ffffff',
-                    border: 'none',
-                    borderRadius: '8px',
-                    padding: '0.9rem 2rem',
-                    fontWeight: 800,
-                    fontSize: '0.85rem',
-                    letterSpacing: '0.08em',
-                    cursor: 'pointer',
-                    textTransform: 'uppercase',
-                    boxShadow: '0 10px 25px -5px rgba(29, 78, 216, 0.4)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                  onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                >
-                  EXPLORE CAPABILITIES <span>&rarr;</span>
-                </button>
+              <div>
                 <button
                   onClick={() => onNavigate && onNavigate('contact')}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '12px',
-                    background: '#f8fafc',
-                    color: '#0f172a',
-                    border: '1px solid #cbd5e1',
-                    borderRadius: '8px',
-                    padding: '0.9rem 2rem',
-                    fontWeight: 800,
+                    background: '#1d4ed8',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '0',
+                    padding: '0.85rem 1.75rem',
+                    fontWeight: 600,
                     fontSize: '0.85rem',
-                    letterSpacing: '0.08em',
+                    letterSpacing: '0.05em',
                     cursor: 'pointer',
                     textTransform: 'uppercase',
-                    transition: 'all 0.2s ease'
+                    transition: 'background 0.2s ease'
                   }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = '#f1f5f9';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = '#f8fafc';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
+                  onMouseOver={(e) => e.currentTarget.style.background = '#1e40af'}
+                  onMouseOut={(e) => e.currentTarget.style.background = '#1d4ed8'}
                 >
-                  CONTACT DESK <span>&rarr;</span>
+                  CONTACT DESK
                 </button>
               </div>
+            </div>
+          </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '3.5rem 0' }} />
+
+          {/* Metrics Row */}
+          <div className="hero-metrics-4col">
+            <div className="hero-metric-item">
+              <div className="metric-val">20+</div>
+              <div className="metric-lbl">Years of Experience</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">3,000+</div>
+              <div className="metric-lbl">Spindles Rebuilt</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">24/7</div>
+              <div className="metric-lbl">Emergency Support</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">1-Year</div>
+              <div className="metric-lbl">Full Warranty</div>
             </div>
           </div>
 
@@ -100,18 +91,18 @@ export default function About({ onNavigate }) {
               }}
             />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.92) 100%)', padding: '3rem 0', color: '#ffffff' }}>
-              <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
+              <div className="container parallax-overlay-flex">
                 <div>
                   <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase' }}>PUNE HEADQUARTERS</span>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 900, color: '#ffffff', margin: '4px 0 0 0' }}>ISO Class 7 Cleanroom &amp; Sub-Micron Grinding Workshop</h3>
+                  <h3 style={{ fontSize: 'clamp(1.15rem, 4vw, 1.4rem)', fontWeight: 900, color: '#ffffff', margin: '4px 0 0 0' }}>ISO Class 7 Cleanroom &amp; Sub-Micron Grinding Workshop</h3>
                 </div>
-                <div style={{ display: 'flex', gap: '3rem', textAlign: 'right' }}>
+                <div className="parallax-stats-group">
                   <div>
-                    <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>3,000+</div>
+                    <div style={{ fontSize: 'clamp(1.35rem, 5vw, 1.75rem)', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>3,000+</div>
                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 700, marginTop: '4px' }}>Delivered Units</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>1-Year</div>
+                    <div style={{ fontSize: 'clamp(1.35rem, 5vw, 1.75rem)', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>1-Year</div>
                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 700, marginTop: '4px' }}>Full Warranty</div>
                   </div>
                 </div>

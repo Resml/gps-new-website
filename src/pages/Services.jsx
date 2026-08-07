@@ -209,93 +209,83 @@ export default function Services({ onNavigate }) {
   return (
     <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
-      {/* ══ HERO SECTION (DISTINCT PROCESS PAGE DESIGN) ══════════════════════ */}
-      <section style={{ padding: '4rem 0 3.5rem 0', background: '#ffffff' }}>
+      {/* ══ HERO SECTION (MATCHING ABOUT US DESIGN) ══════════════════════ */}
+      <section style={{ padding: '4rem 0 1.5rem 0', background: '#f8fafc' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+          
+          {/* Top 2-Column Header Row */}
+          <div className="about-hero-header">
+            {/* Left: Eyebrow + Huge Title */}
             <div>
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'inline-block', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
                 SOP DOCUMENTED REBUILD PROTOCOL
               </span>
-              <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.18', margin: '0 0 1.25rem 0', letterSpacing: '-0.02em', borderBottom: 'none', paddingBottom: 0 }}>
-                Certified Spindle Rebuilding <span style={{ color: '#1d4ed8' }}>&amp; Optimization</span>
+              <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.2rem)', fontWeight: 700, color: '#111827', lineHeight: '1.1', margin: 0, letterSpacing: '-0.02em' }}>
+                Certified Spindle Rebuilding &amp; Optimization.
               </h1>
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: '0 0 2rem 0', maxWidth: '600px' }}>
+            </div>
+
+            {/* Right: Subheadline Paragraph + Action Button */}
+            <div style={{ paddingTop: '2.5rem' }}>
+              <p style={{ color: '#374151', fontSize: '1.05rem', lineHeight: '1.6', margin: '0 0 2rem 0', maxWidth: '420px', fontWeight: 500 }}>
                 Every spindle submitted for repair undergoes a document-controlled sequence of sub-micron diagnostic checks, CNC taper grinding, cleanroom assembly, and 100,000 RPM dynamic balancing.
               </p>
-
-              {/* 3 Metric Badges Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.5rem' }}>
-                <div>
-                  <span style={{ fontSize: '1.6rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>6 Steps</span>
-                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Documented SOP</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '1.6rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>±0.0005mm</span>
-                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Runout Precision</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '1.6rem', fontWeight: 900, color: '#1d4ed8', display: 'block', lineHeight: 1 }}>100k RPM</span>
-                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, display: 'block', marginTop: '4px' }}>Test Stand Run-In</span>
-                </div>
+              <div>
+                <button
+                  onClick={() => onNavigate && onNavigate('contact')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    background: '#1d4ed8',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '0',
+                    padding: '0.85rem 1.75rem',
+                    fontWeight: 600,
+                    fontSize: '0.85rem',
+                    letterSpacing: '0.05em',
+                    cursor: 'pointer',
+                    textTransform: 'uppercase',
+                    transition: 'background 0.2s ease'
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.background = '#1e40af'}
+                  onMouseOut={(e) => e.currentTarget.style.background = '#1d4ed8'}
+                >
+                  REQUEST EVALUATION
+                </button>
               </div>
-            </div>
-
-            {/* Right Card Panel — Signature Royal Blue Executive Benchmarks Container */}
-            <div style={{ background: '#1d4ed8', borderRadius: '24px', padding: '2.5rem', color: '#ffffff', boxShadow: '0 20px 50px -10px rgba(29, 78, 216, 0.35)', border: '1px solid rgba(255,255,255,0.2)' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#93c5fd', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-                EXECUTIVE BENCHMARKS
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.75rem' }}>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>6–8 Days</span>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Avg. Rebuild Turnaround</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>30–40%</span>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Savings vs OEM New</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>1-Year</span>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>Comprehensive Warranty</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff', display: 'block', lineHeight: 1 }}>20+</span>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', display: 'block', marginTop: '6px', fontWeight: 600 }}>OEM Brands Supported</span>
-                </div>
-              </div>
-              <button
-                onClick={() => onNavigate('contact')}
-                style={{
-                  width: '100%',
-                  marginTop: '2rem',
-                  background: '#ffffff',
-                  color: '#1d4ed8',
-                  border: 'none',
-                  borderRadius: '12px',
-                  padding: '0.85rem 1.5rem',
-                  fontWeight: 900,
-                  fontSize: '0.92rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.15)'
-                }}
-              >
-                <span>REQUEST FAST-TRACK EVALUATION</span>
-                <span>&rarr;</span>
-              </button>
             </div>
           </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '3.5rem 0' }} />
+
+          {/* 4 Metrics Row */}
+          <div className="hero-metrics-4col" style={{ marginBottom: '1rem' }}>
+            <div className="hero-metric-item">
+              <div className="metric-val">6–8 Days</div>
+              <div className="metric-lbl">Avg. Rebuild Turnaround</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">30–40%</div>
+              <div className="metric-lbl">Savings vs OEM New</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">&plusmn;0.0005mm</div>
+              <div className="metric-lbl">Runout Precision</div>
+            </div>
+            <div className="hero-metric-item">
+              <div className="metric-val">1-Year</div>
+              <div className="metric-lbl">Comprehensive Warranty</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ══ 100VW FULL-WIDTH WORKSHOP VIDEO SHOWCASE ══════════ */}
-      <section ref={videoSectionRef} style={{ padding: '4rem 0 3rem 0', background: '#f8fafc' }}>
+      <section ref={videoSectionRef} style={{ padding: '1.5rem 0 3rem 0', background: '#f8fafc' }}>
         <div className="container">
-          <div className="machin-2col-header" style={{ marginBottom: '4rem' }}>
+          <div className="machin-2col-header" style={{ marginBottom: '2.5rem' }}>
             <SlideInLeft>
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 WORKSHOP IN ACTION
@@ -369,8 +359,8 @@ export default function Services({ onNavigate }) {
             </SlideInRight>
           </div>
 
-          {/* 6-Step Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem' }}>
+          {/* 6-Step Grid (Strict 3 and 3 on Desktop) */}
+          <div className="process-steps-grid">
             {steps.map((step, idx) => (
               <ScaleUp key={idx} delay={idx * 0.08}>
                 <div
@@ -438,36 +428,38 @@ export default function Services({ onNavigate }) {
           </div>
 
           {/* Comparison Table */}
-          <div style={{ borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}>
-            {/* Header Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', background: '#1d4ed8', color: '#ffffff', padding: '1.25rem 2rem', fontWeight: 800, fontSize: '0.9rem' }}>
-              <div>EVALUATION PARAMETER</div>
-              <div>OEM NEW UNIT</div>
-              <div style={{ color: '#93c5fd' }}>GPS CERTIFIED REBUILD</div>
-            </div>
-
-            {/* Data Rows */}
-            {compareRows.map((row, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1.2fr 1fr 1fr',
-                  padding: '1.25rem 2rem',
-                  background: idx % 2 === 0 ? '#ffffff' : '#f8fafc',
-                  borderTop: '1px solid #e2e8f0',
-                  alignItems: 'center',
-                  fontSize: '0.92rem'
-                }}
-              >
-                <div style={{ fontWeight: 800, color: '#0f172a' }}>{row.feature}</div>
-                <div style={{ color: '#64748b' }}>{row.oem}</div>
-                <div style={{ color: '#1d4ed8', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
-                  <span>{row.gps}</span>
-                </div>
+          <div style={{ borderRadius: '20px', border: '1px solid #cbd5e1', overflowX: 'auto', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}>
+            <div style={{ minWidth: '700px' }}>
+              {/* Header Row */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', background: '#1d4ed8', color: '#ffffff', padding: '1.25rem 2rem', fontWeight: 800, fontSize: '0.9rem' }}>
+                <div>EVALUATION PARAMETER</div>
+                <div>OEM NEW UNIT</div>
+                <div style={{ color: '#93c5fd' }}>GPS CERTIFIED REBUILD</div>
               </div>
-            ))}
+
+              {/* Data Rows */}
+              {compareRows.map((row, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1.2fr 1fr 1fr',
+                    padding: '1.25rem 2rem',
+                    background: idx % 2 === 0 ? '#ffffff' : '#f8fafc',
+                    borderTop: '1px solid #e2e8f0',
+                    alignItems: 'center',
+                    fontSize: '0.92rem'
+                  }}
+                >
+                  <div style={{ fontWeight: 800, color: '#0f172a' }}>{row.feature}</div>
+                  <div style={{ color: '#64748b' }}>{row.oem}</div>
+                  <div style={{ color: '#1d4ed8', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ color: '#16a34a', fontWeight: 900 }}>✓</span>
+                    <span>{row.gps}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -492,7 +484,7 @@ export default function Services({ onNavigate }) {
           </div>
 
           {/* Logo Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.25rem' }}>
+          <div className="brand-logos-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '1rem' }}>
             {Object.keys(brandLogos).map((key, i) => {
               const logo = brandLogos[key];
               return (
@@ -502,13 +494,13 @@ export default function Services({ onNavigate }) {
                     background: '#ffffff',
                     borderRadius: '14px',
                     border: '1px solid #cbd5e1',
-                    padding: '1rem 1.25rem',
+                    padding: '0.85rem 1rem',
                     display: 'flex',
                     alignItems: 'center',
-                    justify: 'center',
+                    justifyContent: 'center',
                     boxShadow: '0 2px 8px rgba(15,23,42,0.04)',
                     transition: 'all 0.25s ease',
-                    height: '85px'
+                    height: '80px'
                   }}
                 >
                   <div style={{ width: '100%', maxHeight: '42px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -538,10 +530,10 @@ export default function Services({ onNavigate }) {
             </SlideInRight>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="performance-upgrades-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             {upgrades.map((u, idx) => (
               <ScaleUp key={idx} delay={idx * 0.15}>
-                <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1.1fr 1fr', height: '100%', boxShadow: '0 8px 24px rgba(15,23,42,0.06)' }}>
+                <div className="performance-card-inner" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #cbd5e1', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1.1fr 1fr', height: '100%', boxShadow: '0 8px 24px rgba(15,23,42,0.06)' }}>
                   <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div>
                       <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.08)', padding: '4px 10px', borderRadius: '6px', display: 'inline-block', marginBottom: '1rem' }}>
